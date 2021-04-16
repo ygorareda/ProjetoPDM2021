@@ -1,4 +1,4 @@
-package com.mobile.tournamentfinder
+package com.mobile.pytournaments
 
 import org.junit.Test
 
