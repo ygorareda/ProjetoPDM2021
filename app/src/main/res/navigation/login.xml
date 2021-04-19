@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/login"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/forgotPasswordFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.login.ForgotPasswordFragment"
+        android:label="fragment_forgot_password"
+        tools:layout="@layout/fragment_forgot_password" />
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.login.LoginFragment"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_loginFragment_to_forgotPasswordFragment"
+            app:destination="@id/forgotPasswordFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_loginSignUpFragment"
+            app:destination="@id/loginSignUpFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginSignUpFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.login.LoginSignUpFragment"
+        android:label="fragment_login_sign_up"
+        tools:layout="@layout/fragment_login_sign_up" />
+</navigation>

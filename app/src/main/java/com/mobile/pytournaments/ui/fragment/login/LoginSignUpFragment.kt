@@ -17,6 +17,8 @@ class LoginSignUpFragment : Fragment() {
     ): View? {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_login_sign_up, container, false)
+
+
     }
 
 

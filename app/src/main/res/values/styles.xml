@@ -1,7 +1,7 @@
 <resources>
 
     <style name="Widget.MaterialComponents.Button.OutlinedButton.PrimaryButton">
-        <item name="cornerRadius">8dp</item>
+        <item name="cornerRadius">20dp</item>
         <item name="android:paddingTop">16dp</item>
         <item name="android:paddingBottom">16dp</item>
         <item name="android:textColor">?attr/colorOnPrimary</item>
@@ -10,7 +10,7 @@
     </style>
 
     <style name="Widget.MaterialComponents.Button.OutlinedButton.SecondaryButton">
-        <item name="cornerRadius">4dp</item>
+        <item name="cornerRadius">20dp</item>
         <item name="android:paddingTop">8dp</item>
         <item name="android:paddingBottom">8dp</item>
         <item name="backgroundTint">?attr/colorSecondary</item>
@@ -18,8 +18,5 @@
         <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
-    <style name="splashScreenStyle">
-
-    </style>
 
 </resources>

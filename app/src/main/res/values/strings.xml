@@ -11,4 +11,14 @@
     <string name="login_fragment_forgot">Esqueceu a senha?</string>
     <string name="forgot_fragment_email">Insira seu email</string>
     <string name="forgot_fragment_send">Enviar email de recuperação</string>
+    <!-- TODO: Remove or change this placeholder text -->
+
+    <!-- onboarding fragment -->
+    <string name="comecar">Começar</string>
+    <string name="skip">Skip</string>
+    <string name="title_activity_login">LoginActivity</string>
+    <string name="splash_screen_first_title">Crie seu próprio perfil</string>
+    <string name="splash_screen_second_title">Encontre os torneios próximos a você</string>
+    <string name="splash_screen_third_title"></string>
+
 </resources>

@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "749610845187",
+    "project_id": "pytournaments-8feef",
+    "storage_bucket": "pytournaments-8feef.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749610845187:android:84d6d49dc1a27b5f5cfa36",
+        "android_client_info": {
+          "package_name": "com.mobile.pytournaments"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749610845187-e50lt12bq833m3csehqp9rui16vj4cno.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDsGEMjwRxVwBDrMVNmSwFacyaOvnvq-PI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749610845187-e50lt12bq833m3csehqp9rui16vj4cno.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

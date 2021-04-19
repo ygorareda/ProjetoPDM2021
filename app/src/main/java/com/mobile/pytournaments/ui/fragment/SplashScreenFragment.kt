@@ -19,6 +19,8 @@ class SplashScreenFragment : Fragment() {
 
     private lateinit var binding:FragmentSplashScreenBinding
 
+
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
@@ -28,7 +30,7 @@ class SplashScreenFragment : Fragment() {
         GlobalScope.
         launch(context = Dispatchers.Main) {
             delay(4000)
-            //findNavController().navigate(R.id.action_splashScreenFragment_to_onboardingFragment)
+            findNavController().navigate(R.id.action_splashScreenFragment_to_loginFragment)
         }
 
         return binding.root
