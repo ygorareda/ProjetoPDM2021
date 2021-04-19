@@ -21,6 +21,10 @@ class MainActivity : AppCompatActivity() {
     private lateinit var onboardingItemsAdapter: OnboardingItemsAdapter
     private lateinit var indicatorsContainer : LinearLayout
 
+    private var splashFirst= "Crie seu próprio perfil"
+    private var splashSecond = "Encontre os torneios próximos a você"
+    private var splashThird = "Encontre pessoas com gostos similares"
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.fragment_onboarding)
@@ -35,18 +39,18 @@ class MainActivity : AppCompatActivity() {
             listOf(
                 OnboardingItem(
                     onboardingImage =  R.drawable.primeira,
-                    title = "teste Primeiro",
-                    description = "descrição primeira"
+                    title = splashFirst,
+                    description = ""
                 ),
                 OnboardingItem(
-                    onboardingImage =  R.drawable.segunda,
-                    title = "teste segunda",
-                    description = "descrição segunda"
+                    onboardingImage =  R.drawable.segunda_tela_splashscreen,
+                    title = splashSecond,
+                    description = ""
                 ),
                 OnboardingItem(
-                    onboardingImage =  R.drawable.terceira,
-                    title = "teste terceira",
-                    description = "descrição terceira"
+                    onboardingImage =  R.drawable.terceira_tela_splashscreen,
+                    title = splashThird,
+                    description = ""
                 )
             )
         )

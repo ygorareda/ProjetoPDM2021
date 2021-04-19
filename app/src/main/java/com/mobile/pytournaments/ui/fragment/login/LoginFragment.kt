@@ -21,24 +21,25 @@ import javax.inject.Inject
 class LoginFragment : Fragment() {
 
     lateinit var biding: FragmentLoginBinding
-    @Inject lateinit var auth: FirebaseAuth
+    @Inject
+    lateinit var auth: FirebaseAuth
 
 
-    fun irEsqueciSenha(v: View){
+    fun irEsqueciSenha(v: View) {
         findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
 
     }
-    fun irSignUp(v: View){
+
+    fun irSignUp(v: View) {
 
         findNavController().navigate(R.id.action_loginFragment_to_loginSignUpFragment)
     }
 
 
-
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
             savedInstanceState: Bundle?
-    ): View? {
+    ) : View{
         // Inflate the layout for this fragment
 
         biding = FragmentLoginBinding.inflate(inflater, container, false)
@@ -53,13 +54,9 @@ class LoginFragment : Fragment() {
             val password = biding.tvPasswordLogin.text.toString()
             signIn(email, password)
 
-            }
-
-
+        }
 
         return biding.root
-
-
 
     }
 
@@ -71,7 +68,7 @@ class LoginFragment : Fragment() {
                     if (task.isSuccessful) {
                         // Sign in success, update UI with the signed-in user's information
                         Log.d(TAG, "signInWithEmail:success")
-                        Toast.makeText(context,"deu bom mano",Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, "deu bom mano", Toast.LENGTH_SHORT).show()
 
                     } else {
                         // If sign in fails, display a message to the user.
@@ -83,6 +80,6 @@ class LoginFragment : Fragment() {
 
                 }
     }
-
-
 }
+
+
