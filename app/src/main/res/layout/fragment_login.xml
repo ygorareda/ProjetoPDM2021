@@ -1,46 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<<<<<<< HEAD
-<layout xmlns:android="http://schemas.android.com/apk/res/android"
-=======
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
->>>>>>> d46be932b7c7d60602fe41ec305428539879c660
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-<<<<<<< HEAD
+
         <variable
             name="codigoDoFragmento"
             type="com.mobile.pytournaments.ui.fragment.login.LoginFragment" />
-
-
     </data>
 
-
-
-=======
-
-    </data>
-
->>>>>>> d46be932b7c7d60602fe41ec305428539879c660
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/clLoginFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-<<<<<<< HEAD
-=======
         android:background="?backgroundColor"
->>>>>>> d46be932b7c7d60602fe41ec305428539879c660
         tools:context=".ui.fragment.login.LoginFragment">
 
         <TextView
             android:id="@+id/tvLoginTitle"
-<<<<<<< HEAD
-=======
             style="?titleStyle"
->>>>>>> d46be932b7c7d60602fe41ec305428539879c660
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
@@ -87,10 +68,6 @@
 
         <Button
             android:id="@+id/btLoginLogon"
-<<<<<<< HEAD
-=======
-            style="?secondaryButtonStyle"
->>>>>>> d46be932b7c7d60602fe41ec305428539879c660
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="128dp"
@@ -102,20 +79,14 @@
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent" />
 
-<<<<<<< HEAD
-        <Button
-=======
+
         <TextView
->>>>>>> d46be932b7c7d60602fe41ec305428539879c660
             android:id="@+id/tvLoginForgotPassword"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
             android:text="@string/login_fragment_forgot"
-<<<<<<< HEAD
             android:onClick="@{codigoDoFragmento::irEsqueciSenha}"
-=======
->>>>>>> d46be932b7c7d60602fe41ec305428539879c660
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.498"
             app:layout_constraintStart_toStartOf="parent"
@@ -127,18 +98,12 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:text="@string/login_fragment_sign_up"
-<<<<<<< HEAD
             android:onClick="@{codigoDoFragmento::irSignUp}"
-=======
->>>>>>> d46be932b7c7d60602fe41ec305428539879c660
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/tvLoginForgotPassword" />
     </androidx.constraintlayout.widget.ConstraintLayout>
-<<<<<<< HEAD
+
 
 </layout>
 
-=======
-</layout>
->>>>>>> d46be932b7c7d60602fe41ec305428539879c660
