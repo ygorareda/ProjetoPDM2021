@@ -4,4 +4,5 @@
     <attr format="reference" name="secondaryButtonStyle"/>
 
     <attr format="reference" name="titleStyle"/>
+    <attr format="reference" name="secondaryTitleStyle"/>
 </resources>

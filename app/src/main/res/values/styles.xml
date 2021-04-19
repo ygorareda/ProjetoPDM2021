@@ -18,6 +18,8 @@
         <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
+    <style name="splashScreenStyle">
 
+    </style>
 
 </resources>
