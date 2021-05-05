@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.mobile.pytournaments">
+    package="com.mobile.pytournaments" >
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
-
 
     <application
         android:name=".PyTournaments"
@@ -12,28 +11,37 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.PyTournaments">
-
-
+        android:theme="@style/Theme.PyTournaments" >
+        <activity
+            android:name=".ui.fragment.screen.principaltesteActivity"
+            android:label="@string/title_activity_principalteste" >
+        </activity>
+        <activity
+            android:name=".ui.fragment.screen.testebottomActivity"
+            android:label="@string/title_activity_testebottom" >
+        </activity>
+        <activity
+            android:name=".ui.fragment.screen.TestebottomActivity"
+            android:label="@string/title_activity_testebottom" >
+        </activity>
+        <activity
+            android:name=".ui.fragment.screen.TesteBottomActivity"
+            android:label="@string/title_activity_teste_bottom" />
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
         -->
-
-
         <activity
             android:name=".ui.activity.LoginActivity"
-            android:label="@string/title_activity_login">
-
-        </activity>
-        <activity android:name=".HomeActivity" />
-        <activity android:name=".MainActivity">
+            android:label="@string/title_activity_login" />
+        <activity android:name=".HomeActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

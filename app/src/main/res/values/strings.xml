@@ -20,5 +20,18 @@
     <string name="splash_screen_first_title">Crie seu próprio perfil</string>
     <string name="splash_screen_second_title">Encontre os torneios próximos a você</string>
     <string name="splash_screen_third_title"></string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="home">Home</string>
+    <string name="busca">Busca</string>
+    <string name="torneios">Torneios</string>
+    <string name="grupos">Grupos</string>
+    <string name="perfil">Perfil</string>
+    <string name="title_activity_teste_bottom">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="title_activity_testebottom">MainActivity</string>
+    <string name="title_activity_principalteste">MainActivity</string>
 
 </resources>

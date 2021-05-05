@@ -3,6 +3,7 @@ package com.mobile.pytournaments.ui.fragment.login
 import android.app.Activity
 import android.content.ContentValues.TAG
 import android.os.Bundle
+import android.text.TextUtils
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -52,7 +53,7 @@ class LoginFragment : Fragment() {
 
             val email = biding.tvEmailLogin.text.toString()
             val password = biding.tvPasswordLogin.text.toString()
-            signIn(email, password)
+            veryfyAndLoginUser(email, password)
 
         }
 
@@ -60,8 +61,22 @@ class LoginFragment : Fragment() {
 
     }
 
-    private fun signIn(email: String, password: String) {
+    private fun veryfyAndLoginUser(email: String, password: String) {
         Log.d(TAG, "signIn:$email")
+
+
+        if (TextUtils.isEmpty(email)) {
+            biding.tvEmailLogin.error = "Required"
+            return
+        }else{
+            biding.tvEmailLogin.error = null
+        }
+        if (TextUtils.isEmpty(password)) {
+            biding.tvPasswordLogin.error = "Required"
+            return
+        }else{
+            biding.tvPasswordLogin.error = null
+        }
 
         auth.signInWithEmailAndPassword(email, password)
                 .addOnCompleteListener(requireActivity()) { task ->
@@ -80,6 +95,10 @@ class LoginFragment : Fragment() {
 
                 }
     }
+
+
+
+
 }
 
 

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/mainFragment">
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_profileMainUserFragment"
+            app:destination="@id/profileMainUserFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_mainGroupsFragment"
+            app:destination="@id/mainGroupsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_mainTournamentsFragment"
+            app:destination="@id/mainTournamentsFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mainGroupsFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.main.groups.MainGroupsFragment"
+        android:label="fragment_main_groups"
+        tools:layout="@layout/fragment_main_groups" />
+    <fragment
+        android:id="@+id/mainTournamentsFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.main.tournaments.MainTournamentsFragment"
+        android:label="fragment_main_tournaments"
+        tools:layout="@layout/fragment_main_tournaments" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.main.search.SearchFragment"
+        android:label="fragment_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/profileMainUserFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.main.profile.ProfileMainUserFragment"
+        android:label="fragment_profile_main_user"
+        tools:layout="@layout/fragment_profile_main_user" />
+</navigation>
