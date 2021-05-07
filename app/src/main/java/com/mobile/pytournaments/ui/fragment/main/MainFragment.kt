@@ -9,20 +9,22 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.mobile.pytournaments.R
+import com.mobile.pytournaments.databinding.FragmentMainBinding
 
 
 class MainFragment : Fragment() {
 
+    private lateinit var biding: FragmentMainBinding
 
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_main, container, false)
+        biding = FragmentMainBinding.inflate(inflater, container, false)
+        biding.mainFragment = this
+        biding.lifecycleOwner = this
 
-
-
-
+        return biding.root
 
     }
 
