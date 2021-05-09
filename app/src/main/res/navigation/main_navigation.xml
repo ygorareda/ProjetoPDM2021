@@ -37,10 +37,19 @@
         android:id="@+id/searchFragment"
         android:name="com.mobile.pytournaments.ui.fragment.main.search.SearchFragment"
         android:label="fragment_search"
-        tools:layout="@layout/fragment_search" />
+        tools:layout="@layout/fragment_search" >
+        <action
+            android:id="@+id/action_searchFragment_to_chatBotSearchFragment"
+            app:destination="@id/chatBotSearchFragment" />
+    </fragment>
     <fragment
         android:id="@+id/profileMainUserFragment"
         android:name="com.mobile.pytournaments.ui.fragment.main.profile.ProfileMainUserFragment"
         android:label="fragment_profile_main_user"
         tools:layout="@layout/fragment_profile_main_user" />
+    <fragment
+        android:id="@+id/chatBotSearchFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.main.search.ChatBotSearchFragment"
+        android:label="fragment_chat_bot_search"
+        tools:layout="@layout/fragment_chat_bot_search" />
 </navigation>

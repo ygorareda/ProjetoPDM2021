@@ -1,15 +1,109 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".ui.fragment.main.search.SearchFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+<layout>
+
+    <data>
+        <variable
+            name="teste"
+            type="com.mobile.pytournaments.ui.fragment.main.search.SearchFragment" />
+
+    </data>
+
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:id="@+id/frameLayout8"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#210035"
-        android:text="@string/hello_blank_fragment" />
+        android:background="@drawable/background_gradient"
+        tools:context=".ui.fragment.main.search.SearchFragment">
 
-</FrameLayout>
+        <!-- TODO: Update blank fragment layout -->
+
+
+        <TextView
+            android:id="@+id/tvTitlePrincipal5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="75dp"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/titlePrincial"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <Button
+            android:id="@+id/btPesquisa"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="72dp"
+            android:layout_marginEnd="50dp"
+            android:text="Pesquisar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitlePrincipal5" />
+
+        <TextView
+            android:id="@+id/tvSugestao"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="44dp"
+            android:text="Sugestôes de Campeonatos"
+            android:textColor="#000000"
+            android:textStyle="bold"
+            android:textSize="15sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.119"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btPesquisa"
+            />
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvRoalegmTorneiosParticipados"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvSugestao" />
+
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btChatBot"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:backgroundTint="#393939"
+            android:contentDescription="@string/fab_content_desc"
+            android:onClick="@{teste::irChatBot}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.943"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.963"
+            app:borderWidth="0dp"
+            app:srcCompat="@drawable/ic_chat_bot" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+

@@ -33,5 +33,10 @@
     <string name="title_notifications">Notifications</string>
     <string name="title_activity_testebottom">MainActivity</string>
     <string name="title_activity_principalteste">MainActivity</string>
+    <string name="titlePrincial">PyTournaments</string>
+    <string name="proximos_torneios_online">Próximos Torneios Online</string>
+    <string name="proximos_torneios_presencial">Próximos Torneios Presenciais</string>
+    <string name="torneios_participados">Torneios Participando</string>
+    <string name="fab_content_desc" />
 
 </resources>
