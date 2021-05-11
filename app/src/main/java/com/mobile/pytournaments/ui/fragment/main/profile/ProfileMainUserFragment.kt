@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -23,11 +24,19 @@ class ProfileMainUserFragment : Fragment() {
     private lateinit var biding: FragmentProfileMainUserBinding
 
 
+    fun redirecionarAmigos(v: View){
+        findNavController().navigate(R.id.action_profileMainUserFragment_to_profileFriendUserFragment)
+    }
+
+
+
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         biding = FragmentProfileMainUserBinding.inflate(inflater, container, false)
+        biding.redirecionar = this
 
         rolagemHorizontalParticipados = biding.rvTorneiosParticipadosProfile
         adapter = Horizontal_RecyclerView()

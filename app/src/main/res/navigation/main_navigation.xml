@@ -32,7 +32,11 @@
         android:id="@+id/mainTournamentsFragment"
         android:name="com.mobile.pytournaments.ui.fragment.main.tournaments.MainTournamentsFragment"
         android:label="fragment_main_tournaments"
-        tools:layout="@layout/fragment_main_tournaments" />
+        tools:layout="@layout/fragment_main_tournaments" >
+        <action
+            android:id="@+id/action_mainTournamentsFragment_to_tournamentsDescriptionFragment"
+            app:destination="@id/tournamentsDescriptionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="com.mobile.pytournaments.ui.fragment.main.search.SearchFragment"
@@ -46,10 +50,24 @@
         android:id="@+id/profileMainUserFragment"
         android:name="com.mobile.pytournaments.ui.fragment.main.profile.ProfileMainUserFragment"
         android:label="fragment_profile_main_user"
-        tools:layout="@layout/fragment_profile_main_user" />
+        tools:layout="@layout/fragment_profile_main_user" >
+        <action
+            android:id="@+id/action_profileMainUserFragment_to_profileFriendUserFragment"
+            app:destination="@id/profileFriendUserFragment" />
+    </fragment>
     <fragment
         android:id="@+id/chatBotSearchFragment"
         android:name="com.mobile.pytournaments.ui.fragment.main.search.ChatBotSearchFragment"
         android:label="fragment_chat_bot_search"
         tools:layout="@layout/fragment_chat_bot_search" />
+    <fragment
+        android:id="@+id/tournamentsDescriptionFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.main.tournaments.TournamentsDescriptionFragment"
+        android:label="fragment_tournaments_description"
+        tools:layout="@layout/fragment_tournaments_description" />
+    <fragment
+        android:id="@+id/profileFriendUserFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.main.profile.ProfileFriendUserFragment"
+        android:label="fragment_profile_friend_user"
+        tools:layout="@layout/fragment_profile_friend_user" />
 </navigation>
