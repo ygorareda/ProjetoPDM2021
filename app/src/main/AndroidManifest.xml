@@ -12,21 +12,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.PyTournaments" >
-        <activity
-            android:name=".ui.fragment.screen.principaltesteActivity"
-            android:label="@string/title_activity_principalteste" >
-        </activity>
-        <activity
-            android:name=".ui.fragment.screen.testebottomActivity"
-            android:label="@string/title_activity_testebottom" >
-        </activity>
-        <activity
-            android:name=".ui.fragment.screen.TestebottomActivity"
-            android:label="@string/title_activity_testebottom" >
-        </activity>
-        <activity
-            android:name=".ui.fragment.screen.TesteBottomActivity"
-            android:label="@string/title_activity_teste_bottom" />
+
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld
                app to run.
