@@ -17,12 +17,12 @@ import com.mobile.pytournaments.databinding.FragmentMainTournamentsBinding
 
 class MainTournamentsFragment : Fragment() {
 
-    private lateinit var biding: FragmentMainTournamentsBinding
+    private lateinit var binding: FragmentMainTournamentsBinding
 
     //private  lateinit var recyclerView: RecyclerView
-    private lateinit var rolagemHorizontalOnline : RecyclerView
-    private lateinit var rolagemHorizontalPresencial : RecyclerView
-    private lateinit var adapter: Horizontal_RecyclerView
+//    private lateinit var rolagemHorizontalOnline : RecyclerView
+//    private lateinit var rolagemHorizontalPresencial : RecyclerView
+//    private lateinit var adapter: Horizontal_RecyclerView
 
 
 
@@ -31,28 +31,21 @@ class MainTournamentsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
-        biding = FragmentMainTournamentsBinding.inflate(inflater, container, false)
+    ): View {
+        binding = FragmentMainTournamentsBinding.inflate(inflater, container, false)
 
 
 
-        rolagemHorizontalOnline = biding.rvListaHorizontalOnline
-        rolagemHorizontalPresencial = biding.rvListaHorizontalPresencial
-        adapter = Horizontal_RecyclerView()
 
-        rolagemHorizontalPresencial.layoutManager =LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
-        rolagemHorizontalOnline.layoutManager =LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
-
-        rolagemHorizontalOnline.adapter = adapter
-        rolagemHorizontalPresencial.adapter = adapter
-
-
-
-        return biding.root
+        return binding.root
     }
 
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+
+    }
 
 
 

@@ -19,26 +19,23 @@ import com.mobile.pytournaments.databinding.FragmentMainTournamentsBinding
 
 
 class MainFragment : Fragment() {
-
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: Grid_RecyclerView
-    private lateinit var biding: FragmentMainBinding
+    private lateinit var binding: FragmentMainBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
 
-        biding = FragmentMainBinding.inflate(inflater, container, false)
+        binding = FragmentMainBinding.inflate(inflater, container, false)
+        binding.mainFragment = this
+        binding.lifecycleOwner = this
 
-        recyclerView = biding.rvRoalegmTorneiosParticipados
-        adapter = Grid_RecyclerView()
-
-        recyclerView.layoutManager = GridLayoutManager(context,2)
-        recyclerView.adapter = adapter
-
-
-        return biding.root
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+
+    }
 
 }

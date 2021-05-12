@@ -39,7 +39,7 @@ class ProfileMainUserFragment : Fragment() {
         biding.redirecionar = this
 
         rolagemHorizontalParticipados = biding.rvTorneiosParticipadosProfile
-        adapter = Horizontal_RecyclerView()
+        adapter = Horizontal_RecyclerView(listOf())
 
         rolagemHorizontalParticipados.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
         rolagemHorizontalParticipados.adapter = adapter

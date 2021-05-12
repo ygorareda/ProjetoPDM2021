@@ -1,140 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/frameLayout6"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@drawable/background_gradient"
-    tools:context=".ui.fragment.main.MainFragment">
+    xmlns:tools="http://schemas.android.com/tools">
 
-    <!-- TODO: Update blank fragment layout -->
+    <data>
+        <variable
+            name="main_fragment"
+            type="com.mobile.pytournaments.ui.fragment.main.MainFragment" />
+        <variable
+            name="view"
+            type="com.mobile.pytournaments.domain.Tournament" />
+    </data>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clMainFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/background_gradient"
+        tools:context=".ui.fragment.main.MainFragment">
 
-    <TextView
-        android:id="@+id/tvTitlePrincipal"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="75dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="75dp"
-        android:checkable="true"
-        android:clickable="true"
-        android:focusable="true"
-        android:gravity="center"
-        android:text="@string/titlePrincial"
-        android:textColor="#000000"
-        android:textSize="30sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <!-- TODO: Update blank fragment layout -->
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView"
-        android:layout_width="315dp"
-        android:layout_height="195dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginBottom="20dp"
-        app:layout_constraintBottom_toTopOf="@+id/guideline4"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tituloSecundario">
+        <TextView
+            android:id="@+id/tvTitlePrincipal"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="75dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="75dp"
+            android:checkable="true"
+            android:clickable="true"
+            android:focusable="true"
+            android:gravity="center"
+            android:text="@string/titlePrincial"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <RelativeLayout
+
+        <androidx.cardview.widget.CardView
+            android:id="@+id/cvMainFragment"
+            android:layout_width="315dp"
+            android:layout_height="195dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            app:layout_constraintBottom_toTopOf="@+id/guideline4"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tituloSecundario">
+
+            <RelativeLayout
+                android:id="@+id/rlNextTournament"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/imagem"
+                    android:layout_width="match_parent"
+                    android:layout_height="102dp"
+                    tools:srcCompat="@tools:sample/backgrounds/scenic" />
+
+                <TextView
+                    android:id="@+id/titulo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/imagem"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="0dp"
+                    android:text="@{view.name}"
+                    android:textSize="25sp" />
+
+                <TextView
+                    android:id="@+id/descricaoJogo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/titulo"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="@{view.description}"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:id="@+id/data"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/descricaoJogo"
+                    android:layout_centerHorizontal="true"
+                    android:layout_marginTop="10dp"
+                    android:text="@{view.getStringDate()}"
+                    android:textSize="12sp" />
+
+            </RelativeLayout>
+
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvTorneiosParticipados"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="15dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView" />
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="0dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="150dp"
+            android:text="@string/torneios_participados"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline4" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline4"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_begin="313dp" />
 
-            <ImageView
-                android:id="@+id/imagem"
-                android:layout_width="match_parent"
-                android:layout_height="102dp"
-                tools:srcCompat="@tools:sample/backgrounds/scenic" />
-
-            <TextView
-                android:id="@+id/titulo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/imagem"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="0dp"
-                android:text="Título do campeonato"
-                android:textSize="25sp" />
-
-            <TextView
-                android:id="@+id/descricaoJogo"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/titulo"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:text="Título do campeonato"
-                android:textSize="15sp" />
-
-            <TextView
-                android:id="@+id/descricaoData"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/descricaoJogo"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
-                android:text="15/12/2021"
-                android:textSize="10sp" />
-
-        </RelativeLayout>
-
-    </androidx.cardview.widget.CardView>
+        <TextView
+            android:id="@+id/tituloSecundario"
+            android:layout_width="0dp"
+            android:layout_height="23dp"
+            android:layout_marginTop="20dp"
+            android:text="Próximo Torneio"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textSize="17sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitlePrincipal" />
 
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rvRoalegmTorneiosParticipados"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginTop="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="0dp"
-        android:layout_height="30dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="10dp"
-        android:layout_marginEnd="150dp"
-        android:text="@string/torneios_participados"
-        android:textColor="#000000"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline4" />
-
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        app:layout_constraintGuide_begin="313dp" />
-
-    <TextView
-        android:id="@+id/tituloSecundario"
-        android:layout_width="0dp"
-        android:layout_height="23dp"
-        android:layout_marginTop="20dp"
-        android:text="Próximo Torneio"
-        android:textAlignment="center"
-        android:textColor="#000000"
-        android:textSize="17sp"
-        android:textStyle="bold"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvTitlePrincipal" />
-
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

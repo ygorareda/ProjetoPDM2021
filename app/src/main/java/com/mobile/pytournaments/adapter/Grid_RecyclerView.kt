@@ -5,26 +5,31 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.pytournaments.R
+import com.mobile.pytournaments.databinding.ColunaBinding
+import com.mobile.pytournaments.databinding.LinhaBinding
+import com.mobile.pytournaments.domain.Tournament
 
-class Grid_RecyclerView: RecyclerView.Adapter<Grid_RecyclerView.MyViewHolder>() {
+class Grid_RecyclerView(
+    private val tournamentList: List<Tournament>
+): RecyclerView.Adapter<TournamentGridViewHolder>() {
 
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.coluna,parent, false)
-        return MyViewHolder(view)
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TournamentGridViewHolder {
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.coluna,
+            parent, false)
+        return TournamentGridViewHolder(view)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-
+    override fun onBindViewHolder(holder: TournamentGridViewHolder, position: Int) {
+        holder.binding.tournamentColuna = tournamentList[position+1]
+        holder.binding.executePendingBindings()
     }
 
-    override fun getItemCount(): Int {
-        return 25
-    }
+    override fun getItemCount() = tournamentList.size
 
-    class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
-
-    }
+}
 
 
+class TournamentGridViewHolder(v: View): RecyclerView.ViewHolder(v) {
+    val binding = ColunaBinding.bind(v)
 }
