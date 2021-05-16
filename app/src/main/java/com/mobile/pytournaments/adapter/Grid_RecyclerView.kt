@@ -21,7 +21,7 @@ class Grid_RecyclerView(
     }
 
     override fun onBindViewHolder(holder: TournamentGridViewHolder, position: Int) {
-        holder.binding.tournamentColuna = tournamentList[position+1]
+        holder.binding.tournamentColuna = tournamentList[position]
         holder.binding.executePendingBindings()
     }
 

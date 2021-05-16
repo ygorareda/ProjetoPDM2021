@@ -15,8 +15,9 @@ import com.mobile.pytournaments.adapter.Horizontal_RecyclerView
 import com.mobile.pytournaments.databinding.FragmentMainBinding
 import com.mobile.pytournaments.databinding.FragmentProfileMainUserBinding
 import com.mobile.pytournaments.ui.fragment.main.MainFragment
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class ProfileMainUserFragment : Fragment() {
 
     private lateinit var rolagemHorizontalParticipados: RecyclerView
@@ -36,13 +37,13 @@ class ProfileMainUserFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         biding = FragmentProfileMainUserBinding.inflate(inflater, container, false)
-        biding.redirecionar = this
-
-        rolagemHorizontalParticipados = biding.rvTorneiosParticipadosProfile
-        adapter = Horizontal_RecyclerView(listOf())
-
-        rolagemHorizontalParticipados.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
-        rolagemHorizontalParticipados.adapter = adapter
+//        biding.redirecionar = this
+//
+//        rolagemHorizontalParticipados = biding.rvTorneiosParticipadosProfile
+//        adapter = Horizontal_RecyclerView(listOf())
+//
+//        rolagemHorizontalParticipados.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL,false)
+//        rolagemHorizontalParticipados.adapter = adapter
 
 
         return biding.root

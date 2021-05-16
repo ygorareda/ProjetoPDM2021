@@ -4,7 +4,7 @@
 
     <data>
         <variable
-            name="teste"
+            name="search_fragment"
             type="com.mobile.pytournaments.ui.fragment.main.search.SearchFragment" />
 
     </data>
@@ -74,7 +74,7 @@
 
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvRoalegmTorneiosParticipados"
+            android:id="@+id/rvTorneiosSugeridos"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginTop="15dp"
@@ -92,7 +92,7 @@
             android:layout_margin="16dp"
             android:backgroundTint="#393939"
             android:contentDescription="@string/fab_content_desc"
-            android:onClick="@{teste::irChatBot}"
+            android:onClick="@{search_fragment::irChatBot}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.943"

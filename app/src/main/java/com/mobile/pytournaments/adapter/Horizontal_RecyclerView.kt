@@ -25,7 +25,7 @@ class Horizontal_RecyclerView(
     }
 
     override fun onBindViewHolder(holder: TournamentHorizontalViewHolder, position: Int) {
-        holder.binding.tournamentLinha =tournamentList[position+1]
+        holder.binding.tournamentLinha = tournamentList[position]
         holder.binding.executePendingBindings()
     }
     override fun getItemCount() = tournamentList.size

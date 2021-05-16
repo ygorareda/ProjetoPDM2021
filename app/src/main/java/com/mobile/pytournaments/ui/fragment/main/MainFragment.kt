@@ -1,25 +1,25 @@
 package com.mobile.pytournaments.ui.fragment.main
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.GridLayout
-import androidx.navigation.fragment.NavHostFragment
-import androidx.navigation.fragment.findNavController
+import android.widget.Toast
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.mobile.pytournaments.R
 import com.mobile.pytournaments.adapter.Grid_RecyclerView
 import com.mobile.pytournaments.databinding.FragmentMainBinding
-import com.mobile.pytournaments.databinding.FragmentMainTournamentsBinding
+import com.mobile.pytournaments.viewmodel.TournamentViewModel
+import dagger.hilt.android.AndroidEntryPoint
+import java.lang.Exception
 
-
+@AndroidEntryPoint
 class MainFragment : Fragment() {
     private lateinit var binding: FragmentMainBinding
+
+    private val viewModel: TournamentViewModel by viewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
@@ -35,7 +35,21 @@ class MainFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+            binding.rvTorneiosParticipados.layoutManager = GridLayoutManager(context, 2)
+        try {
+            viewModel.subscribedTournaments.observe(viewLifecycleOwner) { list ->
+                binding.rvTorneiosParticipados.adapter = Grid_RecyclerView(list)
+            }
+            loadSubscribedTournaments()
+        }
+        catch(e : Exception){
+            Toast.makeText(context, "Ocorreu algum erro!", Toast.LENGTH_SHORT).show()
+            println(e.printStackTrace())
+        }
+    }
 
+    fun loadSubscribedTournaments(){
+        viewModel.loadSubscribedTournaments()
     }
 
 }

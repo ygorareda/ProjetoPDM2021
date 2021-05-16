@@ -1,24 +1,26 @@
 package com.mobile.pytournaments.ui.fragment.main.search
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.pytournaments.R
 import com.mobile.pytournaments.adapter.Grid_RecyclerView
-import com.mobile.pytournaments.databinding.FragmentMainBinding
 import com.mobile.pytournaments.databinding.FragmentSearchBinding
+import com.mobile.pytournaments.viewmodel.TournamentViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class   SearchFragment : Fragment() {
 
+    private lateinit var binding: FragmentSearchBinding
 
-    private lateinit var recyclerView: RecyclerView
-    private lateinit var adapter: Grid_RecyclerView
-    private lateinit var biding: FragmentSearchBinding
+    private val viewModel: TournamentViewModel by viewModels()
 
     fun irChatBot(v: View) {
         findNavController().navigate(R.id.action_searchFragment_to_chatBotSearchFragment)
@@ -30,24 +32,29 @@ class   SearchFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
-        biding = FragmentSearchBinding.inflate(inflater, container, false)
-        biding.teste = this
-        biding.lifecycleOwner = this
-
-        //recycler view lista
-        recyclerView = biding.rvRoalegmTorneiosParticipados
-        adapter = Grid_RecyclerView()
-
-        recyclerView.layoutManager = GridLayoutManager(context,2)
-        recyclerView.adapter = adapter
+        binding = FragmentSearchBinding.inflate(inflater, container, false)
+        binding.searchFragment = this
+        binding.lifecycleOwner = this
 
 
-
-
-        return biding.root
+        return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
+        binding.rvTorneiosSugeridos.layoutManager = GridLayoutManager(context, 2)
+
+        viewModel.suggestedTournaments.observe(viewLifecycleOwner){ list ->
+            binding.rvTorneiosSugeridos.adapter = Grid_RecyclerView(list)
+        }
+
+        searchForTournamentsUsingUserPreferences()
+    }
+
+    fun searchForTournamentsUsingUserPreferences(){
+        viewModel.loadSuggestedTournaments()
+    }
 }
