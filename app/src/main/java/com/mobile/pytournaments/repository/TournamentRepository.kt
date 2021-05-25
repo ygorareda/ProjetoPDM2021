@@ -10,12 +10,11 @@ import java.util.*
 import javax.inject.Inject
 
 class TournamentRepository @Inject constructor(
-
 ) {
 
     fun searchForSubscribedTournament() = tournamentMockData()
 
-    private fun tournamentMockData(): MutableList<Tournament>{
+    fun tournamentMockData(): MutableList<Tournament>{
         val g1 = Game( 1, "Ganeric game", "FPS", "SUPER GAME")
 
         return mutableListOf(Tournament(1, "Gerenic tournament",

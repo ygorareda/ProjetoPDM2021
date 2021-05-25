@@ -7,10 +7,11 @@ data class User(
     var name: String,
     var username: String,
     var email: String,
-    var img: String,
+    var img: String
 ) {
     var preferences = mutableListOf<Game>()
     var tournamentsSubscribed = mutableListOf<Tournament>()
     var tournamentsHistory =  mutableListOf<Tournament>()
     var friendsList =  mutableListOf<User>()
+
 }

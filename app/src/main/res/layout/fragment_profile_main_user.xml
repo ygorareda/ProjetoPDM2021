@@ -10,6 +10,9 @@
         <variable
             name="redirecionar"
             type="com.mobile.pytournaments.ui.fragment.main.profile.ProfileMainUserFragment" />
+        <variable
+            name="user"
+            type="com.mobile.pytournaments.domain.User" />
 
     </data>
 
@@ -68,7 +71,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="36dp"
-                android:text="Ygor Borges"
+                android:text="@{user.username}"
                 android:textColor="#000000"
                 android:textSize="25sp"
                 android:textStyle="bold"
