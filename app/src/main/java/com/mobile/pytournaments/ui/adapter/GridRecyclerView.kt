@@ -1,4 +1,4 @@
-package com.mobile.pytournaments.adapter
+package com.mobile.pytournaments.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.pytournaments.R
 import com.mobile.pytournaments.databinding.ColunaBinding
-import com.mobile.pytournaments.databinding.LinhaBinding
 import com.mobile.pytournaments.domain.Tournament
 
 class Grid_RecyclerView(

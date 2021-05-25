@@ -8,9 +8,8 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.mobile.pytournaments.R
-import com.mobile.pytournaments.adapter.Grid_RecyclerView
+import com.mobile.pytournaments.ui.adapter.Grid_RecyclerView
 import com.mobile.pytournaments.databinding.FragmentSearchBinding
 import com.mobile.pytournaments.viewmodel.TournamentViewModel
 import dagger.hilt.android.AndroidEntryPoint

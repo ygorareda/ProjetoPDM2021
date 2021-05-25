@@ -1,19 +1,19 @@
 package com.mobile.pytournaments.ui.fragment.main
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import com.mobile.pytournaments.adapter.Grid_RecyclerView
+import com.mobile.pytournaments.R
+import com.mobile.pytournaments.ui.adapter.Grid_RecyclerView
 import com.mobile.pytournaments.databinding.FragmentMainBinding
 import com.mobile.pytournaments.viewmodel.TournamentViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import java.lang.Exception
 
 @AndroidEntryPoint
 class MainFragment : Fragment() {
@@ -36,7 +36,9 @@ class MainFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
             binding.rvTorneiosParticipados.layoutManager = GridLayoutManager(context, 2)
+
         try {
+
             viewModel.subscribedTournaments.observe(viewLifecycleOwner) { list ->
                 binding.rvTorneiosParticipados.adapter = Grid_RecyclerView(list)
             }
@@ -46,6 +48,10 @@ class MainFragment : Fragment() {
             Toast.makeText(context, "Ocorreu algum erro!", Toast.LENGTH_SHORT).show()
             println(e.printStackTrace())
         }
+    }
+
+    fun goToTournamentScreen(){
+        findNavController().navigate(R.id.action_mainFragment_to_tournamentsDescriptionFragment)
     }
 
     fun loadSubscribedTournaments(){

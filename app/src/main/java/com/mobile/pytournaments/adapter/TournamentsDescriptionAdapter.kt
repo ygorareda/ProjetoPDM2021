@@ -8,7 +8,7 @@ import com.mobile.pytournaments.ui.fragment.main.tournaments.fragmentsTournament
 import com.mobile.pytournaments.ui.fragment.main.tournaments.fragmentsTournament.LocalizationTournamentsFragment
 import com.mobile.pytournaments.ui.fragment.main.tournaments.fragmentsTournament.ParticipantsTournamentFragment
 
-class Tournaments_Description_Adapter(fragmentManager : FragmentManager,lifecycle: Lifecycle) : FragmentStateAdapter(fragmentManager,lifecycle) {
+class TournamentsDescriptionAdapter(fragmentManager : FragmentManager, lifecycle: Lifecycle) : FragmentStateAdapter(fragmentManager,lifecycle) {
     override fun getItemCount(): Int {
         return 3
     }

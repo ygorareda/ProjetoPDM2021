@@ -22,12 +22,19 @@
         <action
             android:id="@+id/action_mainFragment_to_searchFragment"
             app:destination="@id/searchFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_tournamentsDescriptionFragment"
+            app:destination="@id/tournamentsDescriptionFragment" />
     </fragment>
     <fragment
         android:id="@+id/mainGroupsFragment"
         android:name="com.mobile.pytournaments.ui.fragment.main.groups.MainGroupsFragment"
         android:label="fragment_main_groups"
-        tools:layout="@layout/fragment_main_groups" />
+        tools:layout="@layout/fragment_main_groups" >
+        <action
+            android:id="@+id/action_mainGroupsFragment_to_tournamentsDescriptionFragment"
+            app:destination="@id/tournamentsDescriptionFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mainTournamentsFragment"
         android:name="com.mobile.pytournaments.ui.fragment.main.tournaments.MainTournamentsFragment"
@@ -45,6 +52,9 @@
         <action
             android:id="@+id/action_searchFragment_to_chatBotSearchFragment"
             app:destination="@id/chatBotSearchFragment" />
+        <action
+            android:id="@+id/action_searchFragment_to_tournamentsDescriptionFragment"
+            app:destination="@id/tournamentsDescriptionFragment" />
     </fragment>
     <fragment
         android:id="@+id/profileMainUserFragment"

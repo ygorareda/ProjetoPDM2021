@@ -6,15 +6,10 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.mobile.pytournaments.R
-import com.mobile.pytournaments.adapter.Grid_RecyclerView
-import com.mobile.pytournaments.adapter.Horizontal_RecyclerView
-import com.mobile.pytournaments.databinding.FragmentMainBinding
+import com.mobile.pytournaments.ui.adapter.Horizontal_RecyclerView
 import com.mobile.pytournaments.databinding.FragmentProfileMainUserBinding
-import com.mobile.pytournaments.ui.fragment.main.MainFragment
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

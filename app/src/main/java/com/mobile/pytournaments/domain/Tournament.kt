@@ -28,7 +28,7 @@ data class Tournament(
         var winnerOrder = mutableListOf(participants)
 
         fun getStringDate() : String {
-                return DateFormat.getDateInstance(DateFormat.FULL).format(date)
+                return DateFormat.getDateInstance(DateFormat.HOUR_OF_DAY0_FIELD).format(date).toString()
         }
 
         override fun compareTo(other: Tournament) = this.name.compareTo(other.name)

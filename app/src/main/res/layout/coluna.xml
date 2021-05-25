@@ -8,14 +8,19 @@
         <variable
             name="tournament_coluna"
             type="com.mobile.pytournaments.domain.Tournament" />
+
     </data>
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="180dp"
         android:layout_margin="10dp"
+        android:clickable="true"
+        android:focusable="true"
         app:cardCornerRadius="10dp"
-        app:cardElevation="6dp">
+        app:cardElevation="6dp"
+
+        >
 
         <RelativeLayout
             android:layout_width="wrap_content"
@@ -42,9 +47,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/titulo"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="@{tournament_coluna.description}"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
 
             <TextView
                 android:id="@+id/descricaoData"
@@ -52,9 +57,9 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/descricaoJogo"
                 android:layout_centerHorizontal="true"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
                 android:text="@{tournament_coluna.date.toString()}"
-                android:textSize="20sp" />
+                android:textSize="15sp" />
         </RelativeLayout>
 
 

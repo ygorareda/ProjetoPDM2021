@@ -7,10 +7,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.mobile.pytournaments.adapter.Horizontal_RecyclerView
+import com.mobile.pytournaments.ui.adapter.Horizontal_RecyclerView
 import com.mobile.pytournaments.databinding.FragmentMainTournamentsBinding
-import com.mobile.pytournaments.domain.Tournament
 import com.mobile.pytournaments.viewmodel.TournamentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -48,7 +46,7 @@ class MainTournamentsFragment : Fragment() {
         loadTournamentDataOnScreen()
     }
 
-    fun loadTournamentDataOnScreen(){
+    private fun loadTournamentDataOnScreen(){
         viewModel.loadSearchedTournaments()
     }
 }
