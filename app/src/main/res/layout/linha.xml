@@ -7,6 +7,9 @@
         <variable
             name="tournament_linha"
             type="com.mobile.pytournaments.domain.Tournament" />
+        <variable
+            name="main_fragment"
+            type="com.mobile.pytournaments.ui.fragment.main.MainFragment" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -23,7 +26,8 @@
 
         <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent">
+            android:layout_height="match_parent"
+            android:onClick="@{main_fragment::goToTournamentScreen}">
 
             <ImageView
                 android:id="@+id/imagem"
