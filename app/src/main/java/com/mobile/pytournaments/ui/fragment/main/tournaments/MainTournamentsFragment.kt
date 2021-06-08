@@ -1,6 +1,7 @@
 package com.mobile.pytournaments.ui.fragment.main.tournaments
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,8 @@ import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.mobile.pytournaments.ui.adapter.Horizontal_RecyclerView
 import com.mobile.pytournaments.databinding.FragmentMainTournamentsBinding
+import com.mobile.pytournaments.ui.adapter.UsersRecyclerView
+import com.mobile.pytournaments.viewmodel.LoggedUserViewModel
 import com.mobile.pytournaments.viewmodel.TournamentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -18,6 +21,8 @@ class MainTournamentsFragment : Fragment() {
 
     private lateinit var binding: FragmentMainTournamentsBinding
     private val viewModel: TournamentViewModel by viewModels()
+    //private val viewModel: LoggedUserViewModel by viewModels()
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,12 +49,18 @@ class MainTournamentsFragment : Fragment() {
             binding.rvTorneiosPresenciais.adapter = Horizontal_RecyclerView(list)
         }
 
-        loadTournamentDataOnScreen()
+        /*viewModel.loadusers.observe(viewLifecycleOwner){ listausers ->
+            val adaptador = UsersRecyclerView(listausers)
+            binding.rvTorneiosOnline.adapter = adaptador
+
+        }*/
+
+       // loadTournamentDataOnScreen()
     }
 
-    private fun loadTournamentDataOnScreen(){
-        viewModel.loadSearchedTournaments()
-    }
+   /* private fun loadTournamentDataOnScreen(){
+        viewModel.searchedLocalTournaments
+    }*/
 
 
 }

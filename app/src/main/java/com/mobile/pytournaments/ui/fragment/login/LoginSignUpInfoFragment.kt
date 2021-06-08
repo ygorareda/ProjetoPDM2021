@@ -25,6 +25,8 @@ class LoginSignUpInfoFragment : Fragment() {
         binding.fragment = this
         binding.viewmodel = viewModel
 
+
+
         return binding.root
     }
 }

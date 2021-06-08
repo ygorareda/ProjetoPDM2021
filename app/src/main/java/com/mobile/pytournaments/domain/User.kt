@@ -15,3 +15,20 @@ data class User(
     var friendsList =  mutableListOf<User>()
 
 }
+
+
+
+
+data class UserApiRetorno(
+    val retorno: List<UserModelo>
+)
+
+data class UserModelo(
+    val email: String,
+    val id: Int,
+    val name: String,
+    val preferencesOfGames: List<String>,
+    val tournamentsParticipated : List<String>,
+    val tournamentsSubscribed: List<String>,
+    val username: String
+)
