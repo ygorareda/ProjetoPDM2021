@@ -1,41 +1,24 @@
 package com.mobile.pytournaments.ui.fragment.login
 
-import android.app.Activity
-import android.content.ContentValues.TAG
 import android.os.Bundle
-import android.text.TextUtils
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import com.google.firebase.auth.FirebaseAuth
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.ktx.Firebase
 import com.mobile.pytournaments.R
 import com.mobile.pytournaments.databinding.FragmentLoginBinding
-import javax.inject.Inject
+import com.mobile.pytournaments.viewmodel.LoginViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 
+@AndroidEntryPoint
 class LoginFragment : Fragment() {
 
-    lateinit var biding: FragmentLoginBinding
-    @Inject
-    lateinit var auth: FirebaseAuth
-
-
-    fun irEsqueciSenha(v: View) {
-        findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
-
-    }
-
-    fun irSignUp(v: View) {
-
-        findNavController().navigate(R.id.action_loginFragment_to_loginSignUpFragment)
-    }
-
+    lateinit var binding: FragmentLoginBinding
+    val viewModel: LoginViewModel by viewModels()
 
     override fun onCreateView(
             inflater: LayoutInflater, container: ViewGroup?,
@@ -43,58 +26,39 @@ class LoginFragment : Fragment() {
     ) : View{
         // Inflate the layout for this fragment
 
-        biding = FragmentLoginBinding.inflate(inflater, container, false)
-        biding.codigoDoFragmento = this
-        biding.lifecycleOwner = this
+        binding = FragmentLoginBinding.inflate(inflater, container, false)
+        binding.codigoDoFragmento = this
+        binding.lifecycleOwner = this
+        binding.viewmodel = viewModel
 
-        auth = Firebase.auth
-        biding.btLoginLogon.setOnClickListener {
-
-
-            val email = biding.tvEmailLogin.text.toString()
-            val password = biding.tvPasswordLogin.text.toString()
-            veryfyAndLoginUser(email, password)
-
+        viewModel.loginResult.observe(viewLifecycleOwner) {
+            if(it.success){
+                requireActivity().finish()
+                findNavController().navigate(R.id.action_loginFragment_to_homeActivity)
+            }
+            else{
+                Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
+            }
         }
 
-        return biding.root
+        return binding.root
 
     }
 
-    private fun veryfyAndLoginUser(email: String, password: String) {
-        Log.d(TAG, "signIn:$email")
-
-
-        if (TextUtils.isEmpty(email)) {
-            biding.tvEmailLogin.error = "Required"
-            return
-        }else{
-            biding.tvEmailLogin.error = null
-        }
-        if (TextUtils.isEmpty(password)) {
-            biding.tvPasswordLogin.error = "Required"
-            return
-        }else{
-            biding.tvPasswordLogin.error = null
-        }
-
-        auth.signInWithEmailAndPassword(email, password)
-                .addOnCompleteListener(requireActivity()) { task ->
-                    if (task.isSuccessful) {
-                        // Sign in success, update UI with the signed-in user's information
-                        Log.d(TAG, "signInWithEmail:success")
-                        Toast.makeText(context, "deu bom mano", Toast.LENGTH_SHORT).show()
-
-                    } else {
-                        // If sign in fails, display a message to the user.
-                        Log.w(TAG, "signInWithEmail:failure", task.exception)
-                        Toast.makeText(context, "Authentication failed.",
-                                Toast.LENGTH_SHORT).show()
-                    }
-
-
-                }
+    fun login(v: View){
+        viewModel.login()
     }
+
+    fun irEsqueciSenha(v: View) {
+        findNavController().navigate(R.id.action_loginFragment_to_forgotPasswordFragment)
+
+    }
+
+    fun irSignUp(v: View) {
+        findNavController().navigate(R.id.action_loginFragment_to_loginSignUpFragment)
+    }
+
+
 
 
 

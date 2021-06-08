@@ -30,5 +30,6 @@
 
         <item name="titleStyle">@style/Base.TextAppearance.AppCompat.BasicTitle</item>
         <item name="secondaryTitleStyle">@style/Base.TextAppearance.AppCompat.SecondaryTitle</item>
+        <item name="infoText">@style/Base.TextAppearance.AppCompat.InfoText</item>
     </style>
 </resources>

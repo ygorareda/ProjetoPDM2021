@@ -6,38 +6,39 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
+        <variable
+            name="onboarding_second_screen"
+            type="com.mobile.pytournaments.ui.fragment.onboarding.screen.OnboardingSecondScreenFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/splashScreenLayout"
+        android:id="@+id/clSecondScreenOnboarding"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="?backgroundColor"
-        tools:context=".ui.fragment.onboarding.SplashScreenFragment">
+        tools:context=".ui.fragment.onboarding.screen.OnboardingSecondScreenFragment">
+
 
         <ImageView
-            android:id="@+id/ivSplashScreenLogo"
+            android:id="@+id/ivSecondScreenOnboarding"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
-            android:layout_centerVertical="true"
-            android:src="@drawable/py_tournament_logo"
+            android:src="@drawable/segunda_tela_splashscreen"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/textView3"
-            style="?secondaryTitleStyle"
-            android:layout_width="wrap_content"
+            android:id="@+id/tvSecondScreenOnboarding"
+            style="?infoText"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:text="@string/app_name"
+            android:layout_marginTop="32dp"
+            android:text="@string/splash_screen_second_title"
+            android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/ivSplashScreenLogo" />
+            app:layout_constraintTop_toTopOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

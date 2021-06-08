@@ -11,6 +11,18 @@
     <string name="login_fragment_forgot">Esqueceu a senha?</string>
     <string name="forgot_fragment_email">Insira seu email</string>
     <string name="forgot_fragment_send">Enviar email de recuperação</string>
+
+    <string name="login_complete">Usuário logou com sucesso!</string>
+    <string name="login_invalid_credentials">Usuário ou senha inválidos</string>
+    <string name="login_user_not_found">Usuário não encontrado</string>
+    <string name="login_invalid_email">Insira um Email válido!</string>
+    <string name="login_blank_password">A Senha deve ser preenchida!</string>
+    <string name="login_blank_email">O Email deve ser preenchido!</string>
+    <string name="login_equal_passwords">As senhas devem ser iguais!</string>
+    <string name="login_invalid_user">Usuário inválido</string>
+    <string name="login_singup">Usuário cadastrado com sucesso</string>
+    <string name="login_forgot">Email enviado com sucesso</string>
+    <string name="unexpected_error">Um erro inesperado ocorreu!</string>
     <!-- TODO: Remove or change this placeholder text -->
 
     <!-- onboarding fragment -->
@@ -19,7 +31,7 @@
     <string name="title_activity_login">LoginActivity</string>
     <string name="splash_screen_first_title">Crie seu próprio perfil</string>
     <string name="splash_screen_second_title">Encontre os torneios próximos a você</string>
-    <string name="splash_screen_third_title"></string>
+    <string name="splash_screen_third_title">Encontre pessoas com gostos similares</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="home">Home</string>

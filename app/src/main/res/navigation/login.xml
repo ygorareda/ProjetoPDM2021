@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/login"
-    app:startDestination="@id/loginFragment">
+    app:startDestination="@id/splashScreenFragment">
 
     <fragment
         android:id="@+id/forgotPasswordFragment"
@@ -21,10 +21,34 @@
         <action
             android:id="@+id/action_loginFragment_to_loginSignUpFragment"
             app:destination="@id/loginSignUpFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_homeActivity"
+            app:destination="@id/homeActivity" />
     </fragment>
     <fragment
         android:id="@+id/loginSignUpFragment"
         android:name="com.mobile.pytournaments.ui.fragment.login.LoginSignUpFragment"
         android:label="fragment_login_sign_up"
         tools:layout="@layout/fragment_login_sign_up" />
+    <fragment
+        android:id="@+id/splashScreenFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.onboarding.SplashScreenFragment"
+        android:label="SplashScreenFragment" >
+        <action
+            android:id="@+id/action_splashScreenFragment_to_onboardingFragment"
+            app:destination="@id/onboardingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/onboardingFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.onboarding.OnboardingFragment"
+        android:label="OnboardingFragment" >
+        <action
+            android:id="@+id/action_onboardingFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <activity
+        android:id="@+id/homeActivity"
+        android:name="com.mobile.pytournaments.ui.activity.HomeActivity"
+        android:label="activity_home"
+        tools:layout="@layout/activity_home" />
 </navigation>
