@@ -3,6 +3,7 @@
     package="com.mobile.pytournaments" >
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.INTERNET"/>
 
     <application
         android:name=".PyTournaments"
@@ -10,8 +11,10 @@
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
+        android:usesCleartextTraffic="true"
         android:supportsRtl="true"
         android:theme="@style/Theme.PyTournaments" >
+
 
         <!--
                Set to true if your app is Standalone, that is, it does not require the handheld

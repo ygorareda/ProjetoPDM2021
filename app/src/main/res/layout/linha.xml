@@ -25,6 +25,7 @@
         app:cardElevation="6dp">
 
         <RelativeLayout
+            android:id="@+id/linha"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:onClick="@{main_fragment::goToTournamentScreen}">

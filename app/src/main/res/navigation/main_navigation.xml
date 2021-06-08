@@ -64,6 +64,9 @@
         <action
             android:id="@+id/action_profileMainUserFragment_to_profileFriendUserFragment"
             app:destination="@id/profileFriendUserFragment" />
+        <action
+            android:id="@+id/action_profileMainUserFragment_to_listFriendsFragment"
+            app:destination="@id/listFriendsFragment" />
     </fragment>
     <fragment
         android:id="@+id/chatBotSearchFragment"
@@ -80,4 +83,9 @@
         android:name="com.mobile.pytournaments.ui.fragment.main.profile.ProfileFriendUserFragment"
         android:label="fragment_profile_friend_user"
         tools:layout="@layout/fragment_profile_friend_user" />
+    <fragment
+        android:id="@+id/listFriendsFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.main.profile.ListFriendsFragment"
+        android:label="fragment_list_friends"
+        tools:layout="@layout/fragment_list_friends" />
 </navigation>
