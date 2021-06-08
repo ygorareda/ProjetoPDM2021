@@ -6,6 +6,8 @@ import com.mobile.pytournaments.domain.UserModelo
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
+import retrofit2.http.Headers
+import retrofit2.http.POST
 import javax.inject.Inject
 
 class UserRepository @Inject constructor(
@@ -13,16 +15,6 @@ class UserRepository @Inject constructor(
     private val tournamentRepository: TournamentRepository
 ){
 
-    fun searchForLoggedUserData() : User{
-        //temporário
-        val user =User(1, "Joshnson", "Zeca samba",
-            "johnson@gmail.com", "")
-        val t = tournamentRepository.searchForSubscribedTournament()
-        user.tournamentsHistory.addAll(t)
-        user.tournamentsSubscribed.addAll(t)
-
-        return user
-    }
 
     suspend fun loadAllUsers(): List<UserModelo> {
         val retrofit = Retrofit.Builder()
@@ -45,4 +37,8 @@ interface UserEndPoint{
 
     @GET("users/busca/geral")
     suspend fun loadAllUsers() : List<UserModelo>
+
+    @POST("users/cadastra")
+    @Headers("Content-type: application/json")
+    suspend fun signUpUsersBd(email: String?, password: String?): String
 }

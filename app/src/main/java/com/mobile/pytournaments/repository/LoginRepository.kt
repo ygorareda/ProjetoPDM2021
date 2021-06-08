@@ -5,11 +5,18 @@ import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.mobile.pytournaments.R
 import com.mobile.pytournaments.domain.LoginResult
+import com.mobile.pytournaments.domain.UserModelo
 import dagger.hilt.android.qualifiers.ApplicationContext
+import retrofit2.http.GET
+import retrofit2.http.Headers
 import java.text.ParseException
 import javax.inject.Inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
+import com.mobile.pytournaments.repository.UserRepository
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.POST
 
 
 class LoginRepository @Inject constructor(
@@ -51,18 +58,23 @@ class LoginRepository @Inject constructor(
     suspend fun sendSingUpData(email: String?, password: String?): LoginResult= suspendCoroutine { nextStep ->
         val singUp = auth.createUserWithEmailAndPassword(email!!, password!!)
 
+
         singUp.addOnCompleteListener{ signup ->
             val result = if(signup.isSuccessful){
                 LoginResult(signup.isSuccessful,
                     context.getString(R.string.login_singup),
                     null)
+
+
             }
             else{
                 parseResultError(signup.isSuccessful, signup.exception)
             }
             nextStep.resume(result)
         }
+
     }
+
 
     suspend fun sendForgotPasswordData(email: String?): LoginResult = suspendCoroutine { nextStep ->
         val forgot = auth.sendPasswordResetEmail(email!!)
@@ -79,4 +91,8 @@ class LoginRepository @Inject constructor(
             nextStep.resume(result)
         }
     }
+
 }
+
+
+

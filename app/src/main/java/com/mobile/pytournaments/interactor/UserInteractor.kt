@@ -9,8 +9,6 @@ class UserInteractor @Inject constructor(
     private val repository: UserRepository
 ) {
 
-    fun searchForLoggedUserData() = repository.searchForLoggedUserData()
-
     suspend fun loadAllUsers(): List<UserModelo> {
         return repository.loadAllUsers()
 

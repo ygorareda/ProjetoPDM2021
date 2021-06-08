@@ -1,7 +1,6 @@
 package com.mobile.pytournaments.viewmodel
 
 import android.app.Application
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -9,7 +8,6 @@ import com.mobile.pytournaments.domain.LoginResult
 import com.mobile.pytournaments.interactor.LoginInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import java.lang.Exception
 import javax.inject.Inject
 
 
@@ -23,6 +21,7 @@ class LoginViewModel @Inject constructor(
     val password = MutableLiveData<String>()
     val passwordCheck = MutableLiveData<String>()
     val loginResult = MutableLiveData<LoginResult>()
+    val usertoken = MutableLiveData<String>()
 
 
     fun login() {
@@ -34,6 +33,7 @@ class LoginViewModel @Inject constructor(
     fun signup() {
         viewModelScope.launch {
             loginResult.value = interactor.signUp(email.value, password.value, passwordCheck.value)
+            usertoken.value = interactor.signUpUsersBd(email.value, password.value)
         }
     }
 
