@@ -5,7 +5,13 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
+        <variable
+            name="signup"
+            type="com.mobile.pytournaments.ui.fragment.login.LoginSignUpFragment" />
 
+        <variable
+            name="viewmodel"
+            type="com.mobile.pytournaments.viewmodel.LoginViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -45,6 +51,7 @@
             android:layout_marginEnd="64dp"
             android:ems="10"
             android:hint="@string/login_fragment_email"
+            android:text="@={viewmodel.email}"
             android:inputType="textEmailAddress"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -60,6 +67,7 @@
             android:layout_marginEnd="64dp"
             android:ems="10"
             android:hint="@string/login_fragment_password"
+            android:text="@={viewmodel.password}"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
@@ -75,6 +83,7 @@
             android:layout_marginEnd="64dp"
             android:ems="10"
             android:hint="@string/login_fragment_password"
+            android:text="@={viewmodel.passwordCheck}"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
@@ -90,6 +99,7 @@
             android:layout_marginEnd="128dp"
             android:layout_marginBottom="16dp"
             android:text="@string/login_fragment_sign_up"
+            android:onClick="@{signup::signUp}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
