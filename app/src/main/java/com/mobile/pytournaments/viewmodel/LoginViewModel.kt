@@ -5,7 +5,9 @@ import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.mobile.pytournaments.domain.Game
 import com.mobile.pytournaments.domain.LoginResult
+import com.mobile.pytournaments.domain.User
 import com.mobile.pytournaments.interactor.LoginInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
@@ -23,6 +25,9 @@ class LoginViewModel @Inject constructor(
     val password = MutableLiveData<String>()
     val passwordCheck = MutableLiveData<String>()
     val loginResult = MutableLiveData<LoginResult>()
+    val signUpInfoName = MutableLiveData<String>()
+    val signUpInfoUsername = MutableLiveData<String>()
+    val signUpInfoPreferences = MutableLiveData<List<Game>>()
 
 
     fun login() {
