@@ -4,6 +4,8 @@
 
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_BACKGROUND_LOCATION"/>
 
     <application
         android:name=".PyTournaments"
@@ -27,6 +29,12 @@
         </activity>
         <activity android:name=".ui.activity.HomeActivity">
         </activity>
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyBL8ReCN5h3uT8HJlPu07ANf63HqeqCG0Y"/>
+
     </application>
+
 
 </manifest>

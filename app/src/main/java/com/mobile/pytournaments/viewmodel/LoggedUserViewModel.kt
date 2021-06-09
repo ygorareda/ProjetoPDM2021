@@ -1,13 +1,11 @@
 package com.mobile.pytournaments.viewmodel
 
 import android.app.Application
-import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.mobile.pytournaments.domain.Tournament
-import com.mobile.pytournaments.domain.User
+import com.mobile.pytournaments.domain.Game
+import com.mobile.pytournaments.domain.UserCadastraApi
 import com.mobile.pytournaments.domain.UserModelo
 import com.mobile.pytournaments.interactor.UserInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,15 +18,13 @@ class LoggedUserViewModel @Inject constructor(
     private val interactor: UserInteractor
 ) : AndroidViewModel(app){
 
-    val loggedUser = MutableLiveData<User>()
-    val tournamentHistory = MutableLiveData<List<Tournament>>()
     val loadusers = MutableLiveData<List<UserModelo>>()
+    val usertoken = MutableLiveData<String>()
 
-    fun loadLoggedUserData(){
-        val userInfo = interactor.searchForLoggedUserData()
-        loggedUser.value = userInfo
-        tournamentHistory.value = userInfo.tournamentsHistory
-    }
+    val name = MutableLiveData<String>()
+    val username = MutableLiveData<String>()
+    //var user = MutableLiveData<UserCadastraApi>()
+    val signUpInfoPreferences = MutableLiveData<List<Game>>()
 
     fun loadAllUsers(){
         viewModelScope.launch {
@@ -36,4 +32,16 @@ class LoggedUserViewModel @Inject constructor(
             }
 
     }
+
+    fun signUpUsersBd(){
+        viewModelScope.launch {
+           usertoken.value = interactor.signUpUsersBd(name.value.toString(),username.value.toString()).toString()
+
+
+        }
+
+
+    }
+
+
 }

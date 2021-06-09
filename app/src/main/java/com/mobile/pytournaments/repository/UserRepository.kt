@@ -1,13 +1,13 @@
 package com.mobile.pytournaments.repository
 
-import com.mobile.pytournaments.domain.User
-import com.mobile.pytournaments.domain.UserApiRetorno
+import android.util.Log
+import android.widget.Toast
+import com.mobile.pytournaments.domain.UserCadastraApi
 import com.mobile.pytournaments.domain.UserModelo
+import retrofit2.Call
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import retrofit2.http.POST
+import retrofit2.http.*
 import javax.inject.Inject
 
 class UserRepository @Inject constructor(
@@ -29,6 +29,20 @@ class UserRepository @Inject constructor(
         return consulta
     }
 
+    suspend fun signUpUsersBd(name: String, username: String): Call<String> {
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.0.2.2:8000/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+        Log.d("teste",name)
+        Log.d("teste",username)
+
+        val request = retrofit.create(UserEndPoint::class.java)
+        val consulta = request.signUpUsersBd(name,username)
+        return consulta
+    }
+
 
 }
 
@@ -38,7 +52,10 @@ interface UserEndPoint{
     @GET("users/busca/geral")
     suspend fun loadAllUsers() : List<UserModelo>
 
-    @POST("users/cadastra")
+    @FormUrlEncoded
     @Headers("Content-type: application/json")
-    suspend fun signUpUsersBd(email: String?, password: String?): String
+    @POST("users/cadastra")
+    suspend fun signUpUsersBd(@Field("name") name: String,@Field("username") username: String): Call<String>
+    //suspend fun signUpUsersBd(@Body userApi: UserCadastraApi): Call<String>
+
 }

@@ -32,3 +32,9 @@ data class UserModelo(
     val tournamentsSubscribed: List<String>,
     val username: String
 )
+
+//apenas para utilização no cadastro da api
+data class UserCadastraApi(
+    var name:String,
+    var username: String
+)
