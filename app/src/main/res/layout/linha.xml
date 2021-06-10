@@ -13,22 +13,18 @@
     </data>
 
     <androidx.cardview.widget.CardView
+        android:id="@+id/cvLinha"
         android:layout_width="300dp"
         android:layout_height="200dp"
-        android:layout_centerInParent="true"
-        android:layout_marginTop="20dp"
         android:layout_marginStart="45dp"
-        android:clickable="true"
-        android:focusable="true"
-        android:checkable="true"
+        android:layout_marginTop="20dp"
         app:cardCornerRadius="5dp"
         app:cardElevation="6dp">
 
         <RelativeLayout
-            android:id="@+id/linha"
+            android:id="@+id/rlLinha"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:onClick="@{main_fragment::goToTournamentScreen}">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/imagem"
@@ -63,10 +59,9 @@
                 android:layout_below="@id/descricaoJogo"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:text="@{tournament_linha.date.toString()}"
+                android:text="@{tournament_linha.stringDate}"
                 android:textSize="12sp" />
         </RelativeLayout>
-
 
 
     </androidx.cardview.widget.CardView>

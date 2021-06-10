@@ -5,29 +5,40 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import com.mobile.pytournaments.databinding.FragmentTournamentsDescriptionBinding
+import com.mobile.pytournaments.domain.Tournament
 import com.mobile.pytournaments.ui.adapter.TournamentDescriptionAdapter
 import com.mobile.pytournaments.ui.fragment.main.tournaments.fragmentsTournament.GeneralInformationFragment
 import com.mobile.pytournaments.ui.fragment.main.tournaments.fragmentsTournament.LocalizationTournamentsFragment
 import com.mobile.pytournaments.ui.fragment.main.tournaments.fragmentsTournament.ParticipantsTournamentFragment
+import com.mobile.pytournaments.viewmodel.SharedViewModel
 
 
 class TournamentsDescriptionFragment : Fragment() {
 
     private lateinit var binding: FragmentTournamentsDescriptionBinding
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
         // Inflate the layout for this fragment
+        val selectedTournament = (sharedViewModel.getSelectedItem() as Tournament)
+
         binding = FragmentTournamentsDescriptionBinding.inflate(inflater, container, false)
+        binding.tournament = selectedTournament
         binding.tournamentDescription = this
         binding.lifecycleOwner = this
 
+
         val pages = arrayListOf(
-            GeneralInformationFragment(),
+            GeneralInformationFragment(selectedTournament),
             ParticipantsTournamentFragment(),
-            LocalizationTournamentsFragment()
+            LocalizationTournamentsFragment(selectedTournament)
         )
+
+        binding.tournamentName.text = selectedTournament.name
+
 
         binding.vpTournamentInfo.adapter =
             TournamentDescriptionAdapter(pages, requireActivity().supportFragmentManager, lifecycle)

@@ -10,9 +10,18 @@ import com.mobile.pytournaments.domain.Tournament
 
 
 class Horizontal_RecyclerView(
-    private val tournamentList: List<Tournament>
-): RecyclerView.Adapter<TournamentHorizontalViewHolder>() {
+    private val tournamentList: List<Tournament>,
+    private val onItemListener: OnClickListener
+): RecyclerView.Adapter<Horizontal_RecyclerView.TournamentHorizontalViewHolder>() {
 
+    inner class TournamentHorizontalViewHolder(v: View) : RecyclerView.ViewHolder(v) {
+        val binding = LinhaBinding.bind(v)
+        init{
+            itemView.setOnClickListener{
+                onItemListener.onClick(bindingAdapterPosition)
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TournamentHorizontalViewHolder {
         val template = LayoutInflater.from(parent.context).inflate(R.layout.linha,
@@ -26,8 +35,8 @@ class Horizontal_RecyclerView(
     }
     override fun getItemCount() = tournamentList.size
 
+    interface OnClickListener{
+        fun onClick(position: Int)
+    }
 }
 
-class TournamentHorizontalViewHolder(v: View) : RecyclerView.ViewHolder(v) {
-    val binding = LinhaBinding.bind(v)
-}

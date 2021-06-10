@@ -19,15 +19,15 @@ class TournamentRepository @Inject constructor(
 
         return mutableListOf(Tournament(1, "Gerenic tournament",
         "Generic tournament", Calendar.getInstance().time,
-            TournamentStatus.WILL_START, "", Location(1.0,-1.0),
+            TournamentStatus.WILL_START, "", Location(-15.834963163926998, -47.91285006006427),
             g1),
         Tournament(2, "Gerenic tournament 2",
-            "Generic tournament", Calendar.getInstance().time,
-            TournamentStatus.WILL_START, "", Location(1.0,-1.0),
+            "Generic tournament about some game", Calendar.getInstance().time,
+            TournamentStatus.WILL_START, "", Location(-15.809310883073378, -48.09375488760715),
             g1),
         Tournament(3, "Gerenic tournament 3",
-            "Generic tournament", Calendar.getInstance().time,
-            TournamentStatus.WILL_START, "", Location(1.0,-1.0),
+            "Generic tournament about game 3", Calendar.getInstance().time,
+            TournamentStatus.WILL_START, "", Location(-15.833580832071275, -47.95532588760664),
             g1)
         )
     }

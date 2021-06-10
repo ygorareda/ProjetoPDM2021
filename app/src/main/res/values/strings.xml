@@ -11,6 +11,9 @@
     <string name="login_fragment_forgot">Esqueceu a senha?</string>
     <string name="forgot_fragment_email">Insira seu email</string>
     <string name="forgot_fragment_send">Enviar email de recuperação</string>
+    <string name="signup_name">Insira seu nome aqui</string>
+    <string name="signup_username">Insira seu apelido aqui</string>
+    <string name="signup_preferences">Escolha suas preferências</string>
 
     <string name="login_complete">Usuário logou com sucesso!</string>
     <string name="login_invalid_credentials">Usuário ou senha inválidos</string>

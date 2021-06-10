@@ -1,11 +1,7 @@
 package com.mobile.pytournaments.domain
 
 import com.mobile.pytournaments.domain.enum.TournamentStatus
-import java.text.DateFormat
 import java.text.SimpleDateFormat
-import java.time.Instant
-import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 import java.util.*
 
 /* Repensar na utilizacao de herança para
@@ -27,9 +23,8 @@ data class Tournament(
         var participants = mutableListOf<User>()
         var winnerOrder = mutableListOf(participants)
 
-        fun getStringDate() : String {
-                return DateFormat.getDateInstance(DateFormat.HOUR_OF_DAY0_FIELD).format(date).toString()
-        }
+        fun getStringDate() = SimpleDateFormat("dd/MM/yyyy HH:mm").format(date)
+
 
         override fun compareTo(other: Tournament) = this.name.compareTo(other.name)
 }
