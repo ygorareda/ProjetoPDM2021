@@ -24,11 +24,12 @@ class LoginViewModel @Inject constructor(
     val password = MutableLiveData<String>()
     val passwordCheck = MutableLiveData<String>()
     val loginResult = MutableLiveData<LoginResult>()
+
+
+    val usertoken = MutableLiveData<String>()
     val signUpInfoName = MutableLiveData<String>()
     val signUpInfoUsername = MutableLiveData<String>()
     val signUpInfoPreferences = MutableLiveData<List<Game>>()
-
-
 
     fun login() {
         viewModelScope.launch {

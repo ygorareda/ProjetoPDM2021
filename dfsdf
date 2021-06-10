@@ -1,0 +1,34 @@
+[33m6374231[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m requisição loguin, criação lista amigos
+[33m217a0ea[m Adicionado a activityViewModel para transferência de dados entre fragmentos
+[33m3694e18[m Implementado o click listener do recycleview
+[33me1c7e28[m[33m ([m[1;32mcheckout[m[33m)[m commitação obrigatoria
+[33m50be8ea[m Resolvido problema com Merge
+[33m319da01[m Criada a tela de informações pós cadastro
+[33m7ed5bff[m modificação cardview
+[33m73e6603[m alteração das cardsviews
+[33mb6b8d0d[m[33m ([m[1;31morigin/developteste[m[33m)[m Consertado o binding e Login de acordo com o MVVMi
+[33m3e4250f[m Consertado binding no Main Fragment
+[33m1e1b358[m Habilidado o binding junto com as classes MVVMI para a tela Profile
+[33m0d94e67[m Criada as telas de informações de um torneio
+[33me064b75[m Binding de torneios com as telas Main, MainTounament e Search estão feito
+[33m5c7ee84[m Adapters agr estão com binding
+[33m91e9dfd[m Merge branch 'master' of https://github.com/ygorareda/ProjetoPDM2021
+[33m2834106[m Criada as classes Domain
+[33m2c4beeb[m auxiliar
+[33m619d121[m adaptação adaptador cardview
+[33mfc8062e[m Criação do esboço de telas
+[33m6f9e7b0[m criação inicial rolagem horizontal
+[33m6b75d93[m Merge branch 'master' of https://github.com/ygorareda/ProjetoPDM2021
+[33m7f7f7f6[m criação bottomNavigationBar
+[33m73f4801[m Adicionado o artigo
+[33m1fd1669[m Delete trab_escritopi2.doc
+[33mf09a677[m verificação de usuario cadastrado
+[33m5a0b145[m verificação de usuario cadastrado
+[33mb0742db[m adicionado imagens relacionadas ao app no Onboarding e resolvido problema de merge
+[33m363195e[m adicionado a tela de SplashScreen
+[33maff28eb[m criação onboarding e inicio autentificação
+[33m38c5c26[m criação onboarding e inicio autentificação
+[33md46be93[m Adicionado os arquivos de navegação e trabalho escrito
+[33m24c62b2[m Implementação do tema nos últimos Fragments adicionados
+[33mdafb0f7[m Criação de Fragment Login, Esqueci a senha e Criação de conta
+[33mab257c8[m Criação do projeto utilizando o padrão MVVMI
