@@ -9,9 +9,19 @@ import com.mobile.pytournaments.databinding.ColunaBinding
 import com.mobile.pytournaments.domain.Tournament
 
 class Grid_RecyclerView(
-    private val tournamentList: List<Tournament>
-): RecyclerView.Adapter<TournamentGridViewHolder>() {
+    private val tournamentList: List<Tournament>,
+    private val onItemListener: OnClickListener
+): RecyclerView.Adapter<Grid_RecyclerView.TournamentGridViewHolder>() {
 
+    inner class TournamentGridViewHolder(v: View): RecyclerView.ViewHolder(v) {
+        val binding = ColunaBinding.bind(v)
+
+        init{
+            itemView.setOnClickListener{
+                onItemListener.onClick(bindingAdapterPosition)
+            }
+        }
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): TournamentGridViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.coluna,
@@ -26,9 +36,10 @@ class Grid_RecyclerView(
 
     override fun getItemCount() = tournamentList.size
 
+    interface OnClickListener{
+        fun onClick(position: Int)
+    }
+
 }
 
 
-class TournamentGridViewHolder(v: View): RecyclerView.ViewHolder(v) {
-    val binding = ColunaBinding.bind(v)
-}

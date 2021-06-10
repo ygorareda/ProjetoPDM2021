@@ -17,7 +17,7 @@ import com.mobile.pytournaments.viewmodel.TournamentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainTournamentsFragment : Fragment() {
+class MainTournamentsFragment : Fragment(), Horizontal_RecyclerView.OnClickListener {
 
     private lateinit var binding: FragmentMainTournamentsBinding
     private val viewModel: TournamentViewModel by viewModels()
@@ -38,15 +38,18 @@ class MainTournamentsFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+
         binding.rvTorneiosOnline.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.rvTorneiosPresenciais.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
         //codigo com repetição possivelmente tem como utilizar apenas um observe
         viewModel.searchedOnlineTournaments.observe(viewLifecycleOwner) { list ->
-            binding.rvTorneiosOnline.adapter = Horizontal_RecyclerView(list)
+            binding.rvTorneiosOnline.adapter = Horizontal_RecyclerView(list,
+                this@MainTournamentsFragment)
         }
         viewModel.searchedLocalTournaments.observe(viewLifecycleOwner) { list ->
-            binding.rvTorneiosPresenciais.adapter = Horizontal_RecyclerView(list)
+            binding.rvTorneiosPresenciais.adapter = Horizontal_RecyclerView(list,
+                this@MainTournamentsFragment)
         }
 
         /*viewModel.loadusers.observe(viewLifecycleOwner){ listausers ->
@@ -55,12 +58,18 @@ class MainTournamentsFragment : Fragment() {
 
         }*/
 
-       // loadTournamentDataOnScreen()
+        loadTournamentDataOnScreen()
     }
 
-   /* private fun loadTournamentDataOnScreen(){
-        viewModel.searchedLocalTournaments
-    }*/
+   private fun loadTournamentDataOnScreen(){
+        viewModel.loadSearchedTournaments()
+    }
 
+    override fun onClick(position: Int) {
+        Toast.makeText(context,
+            "${position} | ${viewModel.searchedLocalTournaments.value?.get(position)?.name}",
+            Toast.LENGTH_LONG)
+            .show()
+    }
 
 }

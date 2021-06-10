@@ -16,7 +16,7 @@ import com.mobile.pytournaments.viewmodel.TournamentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainFragment : Fragment() {
+class MainFragment : Fragment(), Grid_RecyclerView.OnClickListener{
     private lateinit var binding: FragmentMainBinding
 
     private val viewModel: TournamentViewModel by viewModels()
@@ -52,7 +52,9 @@ class MainFragment : Fragment() {
                 binding.descricaoJogo.text = list[0].description
                 binding.TournamentDate.text = list[0].date.toString()
 
-                binding.rvTorneiosParticipados.adapter = Grid_RecyclerView(list.slice(1 until list.size))
+                binding.rvTorneiosParticipados.adapter =
+                    Grid_RecyclerView(list.slice(1 until list.size), this@MainFragment)
+
             }
             loadSubscribedTournaments()
         }
@@ -64,6 +66,13 @@ class MainFragment : Fragment() {
 
     fun loadSubscribedTournaments(){
         viewModel.loadSubscribedTournaments()
+    }
+
+    override fun onClick(position: Int) {
+        Toast.makeText(context,
+            "${position} | ${viewModel.subscribedTournaments.value?.get(position)?.name}",
+            Toast.LENGTH_LONG)
+            .show()
     }
 
 

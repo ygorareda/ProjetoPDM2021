@@ -4,6 +4,8 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -15,7 +17,7 @@ import com.mobile.pytournaments.viewmodel.TournamentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class   SearchFragment : Fragment() {
+class   SearchFragment : Fragment(), Grid_RecyclerView.OnClickListener {
 
     private lateinit var binding: FragmentSearchBinding
 
@@ -47,7 +49,7 @@ class   SearchFragment : Fragment() {
         binding.rvTorneiosSugeridos.layoutManager = GridLayoutManager(context, 2)
 
         viewModel.suggestedTournaments.observe(viewLifecycleOwner){ list ->
-            binding.rvTorneiosSugeridos.adapter = Grid_RecyclerView(list)
+            binding.rvTorneiosSugeridos.adapter = Grid_RecyclerView(list, this@SearchFragment)
         }
 
         searchForTournamentsUsingUserPreferences()
@@ -55,5 +57,12 @@ class   SearchFragment : Fragment() {
 
     fun searchForTournamentsUsingUserPreferences(){
         viewModel.loadSuggestedTournaments()
+    }
+
+    override fun onClick(position: Int) {
+        Toast.makeText(context,
+            "${position} | ${viewModel.subscribedTournaments.value?.get(position)?.name}",
+            Toast.LENGTH_LONG)
+            .show()
     }
 }
