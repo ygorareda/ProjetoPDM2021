@@ -2,11 +2,9 @@ package com.mobile.pytournaments.interactor
 
 import android.content.Context
 import com.mobile.pytournaments.R
-import com.mobile.pytournaments.domain.Login
 import com.mobile.pytournaments.domain.LoginResult
 import com.mobile.pytournaments.repository.LoginRepository
 import dagger.hilt.android.qualifiers.ApplicationContext
-import java.lang.Exception
 import javax.inject.Inject
 
 
@@ -63,4 +61,9 @@ class LoginInteractor @Inject constructor(
 
         return LoginResult(true, "", null)
     }
+
+
+
+
+
 }

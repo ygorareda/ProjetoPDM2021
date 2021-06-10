@@ -2,12 +2,11 @@ package com.mobile.pytournaments.viewmodel
 
 import android.app.Application
 import android.util.Log
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
-import com.mobile.pytournaments.domain.Tournament
-import com.mobile.pytournaments.domain.User
+import com.mobile.pytournaments.domain.Game
+import com.mobile.pytournaments.domain.UserCadastraApi
 import com.mobile.pytournaments.domain.UserModelo
 import com.mobile.pytournaments.interactor.UserInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -20,20 +19,46 @@ class LoggedUserViewModel @Inject constructor(
     private val interactor: UserInteractor
 ) : AndroidViewModel(app){
 
-    val loggedUser = MutableLiveData<User>()
-    val tournamentHistory = MutableLiveData<List<Tournament>>()
-    val loadusers = MutableLiveData<List<UserModelo>>()
+    val loadusers = MutableLiveData<List<UserCadastraApi>>()
+    val usertoken = MutableLiveData<String>()
+    val uniqueUser = MutableLiveData<UserCadastraApi>()
 
-    fun loadLoggedUserData(){
-        val userInfo = interactor.searchForLoggedUserData()
-        loggedUser.value = userInfo
-        tournamentHistory.value = userInfo.tournamentsHistory
-    }
+    val name = MutableLiveData<String>()
+    val username = MutableLiveData<String>()
+    var teste: String = ""
 
-    fun loadAllUsers(){
+    val signUpInfoPreferences = MutableLiveData<List<Game>>()
+
+    fun loadAllFriends(){
         viewModelScope.launch {
-            loadusers.value = interactor.loadAllUsers()
+            loadusers.value = interactor.loadAllFriends()
             }
 
     }
+
+    fun signUpUsersBd(){
+
+        viewModelScope.launch {
+            Log.d("teste",name.value.toString())
+            Log.d("teste", username.value.toString())
+            usertoken.value = interactor.signUpUsersBd(name.value.toString(),username.value.toString())
+
+
+        }
+    }
+
+   fun loadUniqueUser() {
+
+        viewModelScope.launch {
+            //Log.d("teste",usertoken.value.toString())
+            //Log.d("teste", teste.toString())
+            uniqueUser.value = interactor.loadUniqueUser()
+            //Log.d("teste", uniqueUser.value.toString())
+            
+
+        }
+    }
+
+
+
 }

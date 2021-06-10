@@ -1,19 +1,29 @@
 package com.mobile.pytournaments.interactor
 
-import com.mobile.pytournaments.domain.UserApiRetorno
+import android.util.Log
+import androidx.lifecycle.MutableLiveData
+import com.mobile.pytournaments.domain.UserCadastraApi
 import com.mobile.pytournaments.domain.UserModelo
 import com.mobile.pytournaments.repository.UserRepository
+import retrofit2.Call
 import javax.inject.Inject
 
 class UserInteractor @Inject constructor(
     private val repository: UserRepository
+
 ) {
 
-    fun searchForLoggedUserData() = repository.searchForLoggedUserData()
+    suspend fun loadAllFriends(): List<UserCadastraApi> {
+        return repository.loadAllFriends()
 
-    suspend fun loadAllUsers(): List<UserModelo> {
-        return repository.loadAllUsers()
+    }
 
+    suspend fun signUpUsersBd(name : String, username : String): String {
+        return repository.signUpUsersBd(name, username)
+    }
+
+    suspend fun loadUniqueUser(): UserCadastraApi {
+        return repository.loadUniqueUser()
     }
 
 

@@ -8,11 +8,12 @@ import com.mobile.pytournaments.R
 import com.mobile.pytournaments.databinding.FriendlistBinding
 import com.mobile.pytournaments.databinding.LinhaBinding
 import com.mobile.pytournaments.domain.User
+import com.mobile.pytournaments.domain.UserCadastraApi
 import com.mobile.pytournaments.domain.UserModelo
 
 class UsersRecyclerView(
     //private val userList: List<User>
-    private val users: List<UserModelo>
+    private val users: List<UserCadastraApi>
 ): RecyclerView.Adapter<UsersHolder>()  {
 
 

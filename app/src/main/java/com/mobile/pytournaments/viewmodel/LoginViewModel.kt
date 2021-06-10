@@ -1,7 +1,6 @@
 package com.mobile.pytournaments.viewmodel
 
 import android.app.Application
-import android.widget.Toast
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -9,9 +8,9 @@ import com.mobile.pytournaments.domain.Game
 import com.mobile.pytournaments.domain.LoginResult
 import com.mobile.pytournaments.domain.User
 import com.mobile.pytournaments.interactor.LoginInteractor
+import com.mobile.pytournaments.interactor.UserInteractor
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
-import java.lang.Exception
 import javax.inject.Inject
 
 
@@ -28,6 +27,7 @@ class LoginViewModel @Inject constructor(
     val signUpInfoName = MutableLiveData<String>()
     val signUpInfoUsername = MutableLiveData<String>()
     val signUpInfoPreferences = MutableLiveData<List<Game>>()
+
 
 
     fun login() {

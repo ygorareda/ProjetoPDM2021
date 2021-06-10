@@ -1,26 +1,18 @@
 package com.mobile.pytournaments.ui.fragment.main.tournaments.fragmentsTournament
 
-import android.content.pm.PackageManager
-import android.location.LocationManager
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.app.ActivityCompat
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.activityViewModels
 import com.google.android.gms.maps.CameraUpdateFactory
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
-import com.google.android.gms.maps.model.LatLng
-import com.google.android.gms.maps.model.MarkerOptions
+import com.google.android.gms.maps.model.*
 import com.mobile.pytournaments.R
 import com.mobile.pytournaments.databinding.FragmentLocalizationTournamentsBinding
 import com.mobile.pytournaments.domain.Tournament
-import com.mobile.pytournaments.viewmodel.SharedViewModel
-import com.google.android.gms.maps.model.*
-import com.google.android.material.snackbar.Snackbar
 
 class LocalizationTournamentsFragment(private val tournament: Tournament) : Fragment(),
     OnMapReadyCallback {
@@ -69,5 +61,6 @@ class LocalizationTournamentsFragment(private val tournament: Tournament) : Frag
         map.uiSettings.isZoomControlsEnabled = true
         map.uiSettings.isMapToolbarEnabled = true
     }
+
 
 }

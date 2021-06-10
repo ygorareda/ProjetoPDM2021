@@ -26,9 +26,17 @@ data class UserApiRetorno(
 data class UserModelo(
     val email: String,
     val id: Int,
-    val name: String,
+    var name: String,
     val preferencesOfGames: List<String>,
     val tournamentsParticipated : List<String>,
     val tournamentsSubscribed: List<String>,
     val username: String
+)
+
+//apenas para utilização no cadastro da api
+data class UserCadastraApi(
+    var id : String,
+    var name:String,
+    var username: String
+
 )

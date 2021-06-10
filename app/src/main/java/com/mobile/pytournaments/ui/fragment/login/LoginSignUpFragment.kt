@@ -7,6 +7,8 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
+import com.mobile.pytournaments.R
 import com.mobile.pytournaments.databinding.FragmentLoginSignUpBinding
 import com.mobile.pytournaments.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -28,7 +30,12 @@ class LoginSignUpFragment: Fragment() {
         binding.viewmodel = viewModel
 
         viewModel.loginResult.observe(viewLifecycleOwner) {
-            Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
+            if(it.success){
+                Toast.makeText(context, "cadastrado", Toast.LENGTH_SHORT).show()
+                findNavController().navigate(R.id.action_loginSignUpFragment_to_loginSignUpInfoFragment)
+            }else{
+                Toast.makeText(context, it.message, Toast.LENGTH_SHORT).show()
+            }
         }
 
         return binding.root
@@ -36,6 +43,7 @@ class LoginSignUpFragment: Fragment() {
     }
 
     fun signUp(v:View){
-        viewModel.signup()
+         viewModel.signup()
+
     }
 }

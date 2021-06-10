@@ -56,6 +56,7 @@ class LoginFragment : Fragment() {
 
     fun irSignUp(v: View) {
         findNavController().navigate(R.id.action_loginFragment_to_loginSignUpFragment)
+
     }
 
 
