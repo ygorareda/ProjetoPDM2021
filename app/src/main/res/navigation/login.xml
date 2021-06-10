@@ -24,9 +24,6 @@
         <action
             android:id="@+id/action_loginFragment_to_homeActivity"
             app:destination="@id/homeActivity" />
-        <action
-            android:id="@+id/action_loginFragment_to_loginSignUpInfoFragment"
-            app:destination="@id/loginSignUpInfoFragment" />
     </fragment>
     <fragment
         android:id="@+id/loginSignUpFragment"

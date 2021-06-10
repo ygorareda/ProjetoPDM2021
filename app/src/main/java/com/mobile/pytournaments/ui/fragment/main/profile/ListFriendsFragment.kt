@@ -51,7 +51,7 @@ class ListFriendsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         binding.rvFriendsList.layoutManager = LinearLayoutManager(context)
-       loadUsers()
+        loadUsers()
 
         viewModel.loadusers.observe(viewLifecycleOwner) { listausers ->
             val adaptador = UsersRecyclerView(listausers)
@@ -63,7 +63,7 @@ class ListFriendsFragment : Fragment() {
     }
 
     fun loadUsers(){
-        viewModel.loadAllUsers()
+        viewModel.loadAllFriends()
     }
 
 

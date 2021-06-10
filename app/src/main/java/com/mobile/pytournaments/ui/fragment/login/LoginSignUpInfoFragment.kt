@@ -12,6 +12,8 @@ import androidx.navigation.fragment.findNavController
 import com.mobile.pytournaments.R
 import com.mobile.pytournaments.databinding.FragmentLoginSignUpBinding
 import com.mobile.pytournaments.databinding.FragmentLoginSignUpInfoBinding
+import com.mobile.pytournaments.databinding.FragmentProfileMainUserBinding
+import com.mobile.pytournaments.ui.fragment.main.profile.ProfileMainUserFragment
 import com.mobile.pytournaments.viewmodel.LoggedUserViewModel
 import com.mobile.pytournaments.viewmodel.LoginViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -38,12 +40,12 @@ class LoginSignUpInfoFragment : Fragment() {
             Toast.makeText(context, it, Toast.LENGTH_LONG).show()
         }
 
+
+
         return binding.root
     }
 
     fun signUpUsersBd(v: View){
-       // Log.d("teste"," ${binding.etName.text}")
-       // Log.d("teste"," ${binding.etName}")
         viewModel.signUpUsersBd()
     }
 }

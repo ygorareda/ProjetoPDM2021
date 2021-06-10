@@ -52,14 +52,12 @@ class ProfileMainUserFragment : Fragment() {
 
         binding.rvTorneiosParticipadosProfile.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
 
+
         loadProfileData()
 
-        viewModel.loadusers.observe(viewLifecycleOwner) { listausers ->
-            val adaptador = UsersRecyclerView(listausers)
-            binding.rvTorneiosParticipadosProfile.adapter = adaptador
-            listausers.forEach { p ->
-                Log.d("teste", "$p")
-             }
+        viewModel.uniqueUser.observe(viewLifecycleOwner) {
+            Log.d("teste", it.toString())
+            binding.user = it
 
         }
         //viewModel.loadAllUsers()
@@ -68,7 +66,7 @@ class ProfileMainUserFragment : Fragment() {
     }
 
     fun loadProfileData(){
-        viewModel.loadAllUsers()
+        viewModel.loadUniqueUser()
     }
 
 }

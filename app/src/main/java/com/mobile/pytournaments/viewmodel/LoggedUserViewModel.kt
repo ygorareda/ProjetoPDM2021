@@ -1,6 +1,7 @@
 package com.mobile.pytournaments.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -18,30 +19,45 @@ class LoggedUserViewModel @Inject constructor(
     private val interactor: UserInteractor
 ) : AndroidViewModel(app){
 
-    val loadusers = MutableLiveData<List<UserModelo>>()
+    val loadusers = MutableLiveData<List<UserCadastraApi>>()
     val usertoken = MutableLiveData<String>()
+    val uniqueUser = MutableLiveData<UserCadastraApi>()
 
     val name = MutableLiveData<String>()
     val username = MutableLiveData<String>()
-    //var user = MutableLiveData<UserCadastraApi>()
+    var teste: String = ""
+
     val signUpInfoPreferences = MutableLiveData<List<Game>>()
 
-    fun loadAllUsers(){
+    fun loadAllFriends(){
         viewModelScope.launch {
-            loadusers.value = interactor.loadAllUsers()
+            loadusers.value = interactor.loadAllFriends()
             }
 
     }
 
     fun signUpUsersBd(){
+
         viewModelScope.launch {
-           usertoken.value = interactor.signUpUsersBd(name.value.toString(),username.value.toString()).toString()
+            Log.d("teste",name.value.toString())
+            Log.d("teste", username.value.toString())
+            usertoken.value = interactor.signUpUsersBd(name.value.toString(),username.value.toString())
 
 
         }
-
-
     }
+
+   fun loadUniqueUser() {
+
+        viewModelScope.launch {
+            //Log.d("teste",usertoken.value.toString())
+            //Log.d("teste", teste.toString())
+            uniqueUser.value = interactor.loadUniqueUser()
+            //Log.d("teste", uniqueUser.value.toString())
+
+        }
+    }
+
 
 
 }

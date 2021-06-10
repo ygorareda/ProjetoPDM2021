@@ -12,7 +12,7 @@
             type="com.mobile.pytournaments.ui.fragment.main.profile.ProfileMainUserFragment" />
         <variable
             name="user"
-            type="com.mobile.pytournaments.domain.UserModelo" />
+            type="com.mobile.pytournaments.domain.UserCadastraApi" />
 
     </data>
 
