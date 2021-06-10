@@ -7,12 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.mobile.pytournaments.R
 import com.mobile.pytournaments.ui.adapter.Horizontal_RecyclerView
 import com.mobile.pytournaments.databinding.FragmentMainTournamentsBinding
 import com.mobile.pytournaments.ui.adapter.UsersRecyclerView
 import com.mobile.pytournaments.viewmodel.LoggedUserViewModel
+import com.mobile.pytournaments.viewmodel.SharedViewModel
 import com.mobile.pytournaments.viewmodel.TournamentViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -21,6 +25,7 @@ class MainTournamentsFragment : Fragment(), Horizontal_RecyclerView.OnClickListe
 
     private lateinit var binding: FragmentMainTournamentsBinding
     private val viewModel: TournamentViewModel by viewModels()
+    private val sharedViewModel: SharedViewModel by activityViewModels()
     //private val viewModel: LoggedUserViewModel by viewModels()
 
 
@@ -66,10 +71,8 @@ class MainTournamentsFragment : Fragment(), Horizontal_RecyclerView.OnClickListe
     }
 
     override fun onClick(position: Int) {
-        Toast.makeText(context,
-            "${position} | ${viewModel.searchedLocalTournaments.value?.get(position)?.name}",
-            Toast.LENGTH_LONG)
-            .show()
+        viewModel.searchedLocalTournaments.value?.get(position)?.let { sharedViewModel.selectItem(it) }
+        findNavController().navigate(R.id.action_mainTournamentsFragment_to_tournamentsDescriptionFragment)
     }
 
 }

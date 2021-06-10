@@ -5,16 +5,32 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.activityViewModels
 import com.mobile.pytournaments.R
+import com.mobile.pytournaments.databinding.FragmentGeneralInformationBinding
+import com.mobile.pytournaments.databinding.FragmentTournamentsDescriptionBinding
+import com.mobile.pytournaments.domain.Tournament
+import com.mobile.pytournaments.viewmodel.SharedViewModel
 
-class GeneralInformationFragment : Fragment() {
+class GeneralInformationFragment(private val tournament: Tournament) : Fragment() {
+
+    lateinit var binding: FragmentGeneralInformationBinding
+    private val sharedViewModel: SharedViewModel by activityViewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_general_information, container, false)
+        val selectedTournament = (sharedViewModel.getSelectedItem() as Tournament)
+
+        binding = FragmentGeneralInformationBinding.inflate(inflater, container, false)
+        binding.tournament = selectedTournament
+        binding.generalInformation = this
+        binding.lifecycleOwner = this
+
+        binding.tvTournamentDescription.text = selectedTournament.description
+
+        return binding.root
     }
 
 

@@ -7,6 +7,9 @@
         <variable
             name="tournament"
             type="com.mobile.pytournaments.domain.Tournament" />
+        <variable
+            name="localization_fragment"
+            type="com.mobile.pytournaments.ui.fragment.main.tournaments.fragmentsTournament.LocalizationTournamentsFragment" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -7,6 +7,9 @@
         <variable
             name="tournament"
             type="com.mobile.pytournaments.domain.Tournament" />
+        <variable
+            name="general_information"
+            type="com.mobile.pytournaments.ui.fragment.main.tournaments.fragmentsTournament.GeneralInformationFragment" />
     </data>
 
 

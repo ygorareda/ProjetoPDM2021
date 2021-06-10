@@ -18,7 +18,7 @@ class Grid_RecyclerView(
 
         init{
             itemView.setOnClickListener{
-                onItemListener.onClick(bindingAdapterPosition)
+                onItemListener.onRecycleViewClick(bindingAdapterPosition)
             }
         }
     }
@@ -37,7 +37,7 @@ class Grid_RecyclerView(
     override fun getItemCount() = tournamentList.size
 
     interface OnClickListener{
-        fun onClick(position: Int)
+        fun onRecycleViewClick(position: Int)
     }
 
 }

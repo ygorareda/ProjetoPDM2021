@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import com.mobile.pytournaments.R
 
 
-class ParticipantsTournamentFragment : Fragment() {
+class ParticipantsTournamentFragment() : Fragment() {
 
 
     override fun onCreateView(

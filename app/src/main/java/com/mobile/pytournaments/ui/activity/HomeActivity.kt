@@ -16,8 +16,6 @@ import dagger.hilt.android.WithFragmentBindings
 @WithFragmentBindings
 class HomeActivity : AppCompatActivity() {
 
-
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
@@ -26,8 +24,6 @@ class HomeActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment)
 
         bottomNavigationView.setupWithNavController(navController)
-
-
 
     }
 

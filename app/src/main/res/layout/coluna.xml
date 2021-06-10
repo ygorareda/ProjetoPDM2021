@@ -49,6 +49,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="5dp"
                 android:text="@{tournament_coluna.description}"
+                android:maxLength="25"
                 android:textSize="15sp" />
 
             <TextView
