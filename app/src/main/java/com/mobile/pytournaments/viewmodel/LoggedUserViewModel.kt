@@ -54,6 +54,7 @@ class LoggedUserViewModel @Inject constructor(
             //Log.d("teste", teste.toString())
             uniqueUser.value = interactor.loadUniqueUser()
             //Log.d("teste", uniqueUser.value.toString())
+            
 
         }
     }
