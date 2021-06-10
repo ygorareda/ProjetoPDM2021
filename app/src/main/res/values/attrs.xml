@@ -6,4 +6,5 @@
     <attr format="reference" name="titleStyle"/>
     <attr format="reference" name="secondaryTitleStyle"/>
     <attr format="reference" name="infoText"/>
+    <attr format="reference" name="viewPagerDotsStyle"/>
 </resources>

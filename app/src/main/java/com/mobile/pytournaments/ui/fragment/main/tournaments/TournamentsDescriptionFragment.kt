@@ -38,10 +38,12 @@ class TournamentsDescriptionFragment : Fragment() {
         )
 
         binding.tournamentName.text = selectedTournament.name
-
+        binding.tournamentName.text = selectedTournament.getStringDate()
 
         binding.vpTournamentInfo.adapter =
             TournamentDescriptionAdapter(pages, requireActivity().supportFragmentManager, lifecycle)
+
+        binding.wormDotsIndicator.setViewPager2(binding.vpTournamentInfo)
 
         return binding.root
     }

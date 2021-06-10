@@ -67,6 +67,7 @@ class LocalizationTournamentsFragment(private val tournament: Tournament) : Frag
         map.uiSettings.isScrollGesturesEnabledDuringRotateOrZoom = false
         map.uiSettings.isRotateGesturesEnabled = false
         map.uiSettings.isZoomControlsEnabled = true
+        map.uiSettings.isMapToolbarEnabled = true
     }
 
 }

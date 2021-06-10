@@ -22,25 +22,17 @@
         tools:context=".ui.fragment.main.tournaments.TournamentsDescriptionFragment">
 
         <!-- TODO: Update blank fragment layout -->
-        <com.google.android.material.tabs.TabLayout
-            android:id="@+id/tlNavigation"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-
-            android:layout_marginTop="8dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tournamentName" />
 
         <androidx.viewpager2.widget.ViewPager2
             android:id="@+id/vpTournamentInfo"
             android:layout_width="match_parent"
             android:layout_height="0dp"
+            android:layout_marginTop="250dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tlNavigation" />
+            app:layout_constraintTop_toBottomOf="@+id/tvDate" />
 
         <TextView
             android:id="@+id/TournamentFragmentTitle"
@@ -64,6 +56,29 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/TournamentFragmentTitle" />
+
+        <TextView
+            android:id="@+id/tvDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@{tournament.getStringDate()}"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/tournamentName" />
+
+        <com.tbuonomo.viewpagerdotsindicator.WormDotsIndicator
+            android:id="@+id/wormDotsIndicator"
+            style="?attr/viewPagerDotsStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="32dp"
+            android:layout_marginEnd="32dp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintBottom_toBottomOf="@+id/vpTournamentInfo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

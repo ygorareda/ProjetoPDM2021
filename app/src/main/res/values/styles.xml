@@ -18,5 +18,13 @@
         <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
+    <style name="Widget.ViewPageIndicator" parent="android:Widget">
+        <item name="dotsColor">?attr/colorSecondary</item>
+        <item name="dotsStrokeColor">?attr/colorSecondaryVariant</item>
+        <item name="dotsStrokeWidth">1dp</item>
+        <item name="dotsCornerRadius">8dp</item>
+        <item name="dotsSize">8dp</item>
+        <item name="dotsSpacing">4dp</item>
+    </style>
 
 </resources>

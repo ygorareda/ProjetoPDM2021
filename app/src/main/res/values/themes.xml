@@ -7,7 +7,7 @@
         <item name="colorOnPrimary">@color/black</item>
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/white_2</item>
-        <item name="colorSecondaryVariant">@color/black</item>
+        <item name="colorSecondaryVariant">@color/gray</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
@@ -31,5 +31,7 @@
         <item name="titleStyle">@style/Base.TextAppearance.AppCompat.BasicTitle</item>
         <item name="secondaryTitleStyle">@style/Base.TextAppearance.AppCompat.SecondaryTitle</item>
         <item name="infoText">@style/Base.TextAppearance.AppCompat.InfoText</item>
+
+        <item name="viewPagerDotsStyle">@style/Widget.ViewPageIndicator</item>
     </style>
 </resources>
