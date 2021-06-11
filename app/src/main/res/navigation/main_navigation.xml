@@ -30,11 +30,7 @@
         android:id="@+id/mainGroupsFragment"
         android:name="com.mobile.pytournaments.ui.fragment.main.groups.MainGroupsFragment"
         android:label="fragment_main_groups"
-        tools:layout="@layout/fragment_main_groups" >
-        <action
-            android:id="@+id/action_mainGroupsFragment_to_tournamentsDescriptionFragment"
-            app:destination="@id/tournamentsDescriptionFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_main_groups" />
     <fragment
         android:id="@+id/mainTournamentsFragment"
         android:name="com.mobile.pytournaments.ui.fragment.main.tournaments.MainTournamentsFragment"
@@ -43,6 +39,9 @@
         <action
             android:id="@+id/action_mainTournamentsFragment_to_tournamentsDescriptionFragment"
             app:destination="@id/tournamentsDescriptionFragment" />
+        <action
+            android:id="@+id/action_mainTournamentsFragment_to_createTournamentFragment"
+            app:destination="@id/createTournamentFragment" />
     </fragment>
     <fragment
         android:id="@+id/searchFragment"
@@ -88,4 +87,24 @@
         android:name="com.mobile.pytournaments.ui.fragment.main.profile.ListFriendsFragment"
         android:label="fragment_list_friends"
         tools:layout="@layout/fragment_list_friends" />
+    <fragment
+        android:id="@+id/createTournamentFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.main.tournaments.CreateTournamentFragment"
+        android:label="CreateTournamentFragment"
+        tools:layout="@layout/fragment_create_tournament">
+        <action
+            android:id="@+id/action_createTournamentFragment_to_mainTournamentsFragment"
+            app:destination="@id/mainTournamentsFragment" />
+        <action
+            android:id="@+id/action_createTournamentFragment_to_mapsFragment"
+            app:destination="@id/mapsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="com.mobile.pytournaments.ui.fragment.MapsFragment"
+        android:label="MapsFragment" >
+        <action
+            android:id="@+id/action_mapsFragment_to_createTournamentFragment"
+            app:destination="@id/createTournamentFragment" />
+    </fragment>
 </navigation>

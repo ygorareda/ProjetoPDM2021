@@ -31,6 +31,15 @@ class LoginFragment : Fragment() {
         binding.lifecycleOwner = this
         binding.viewmodel = viewModel
 
+
+
+        return binding.root
+
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         viewModel.loginResult.observe(viewLifecycleOwner) {
             if(it.success){
                 requireActivity().finish()
@@ -40,9 +49,6 @@ class LoginFragment : Fragment() {
                 Toast.makeText(context, it.message, Toast.LENGTH_LONG).show()
             }
         }
-
-        return binding.root
-
     }
 
     fun login(v: View){

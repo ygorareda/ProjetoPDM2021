@@ -30,15 +30,19 @@ class LocalizationTournamentsFragment(private val tournament: Tournament) : Frag
         binding.localizationFragment = this
         binding.lifecycleOwner = this
 
+
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
         // Recupera a instância do mapa configurado na atividade
         val mapFragment = (childFragmentManager.findFragmentById(R.id.map) as SupportMapFragment)
 
         // Solicita a apresentação do mapa em background
         mapFragment.getMapAsync(this)
-
-        return binding.root
     }
-
     override fun onMapReady(googleMap: GoogleMap) {
         map = googleMap
         setupMap()

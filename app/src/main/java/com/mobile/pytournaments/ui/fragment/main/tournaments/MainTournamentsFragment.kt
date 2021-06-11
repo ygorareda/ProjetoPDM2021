@@ -68,11 +68,14 @@ class MainTournamentsFragment : Fragment(), Horizontal_RecyclerView.OnClickListe
 
    private fun loadTournamentDataOnScreen(){
         viewModel.loadSearchedTournaments()
-    }
+   }
 
-    override fun onClick(position: Int) {
-        viewModel.searchedLocalTournaments.value?.get(position)?.let { sharedViewModel.selectItem(it) }
-        findNavController().navigate(R.id.action_mainTournamentsFragment_to_tournamentsDescriptionFragment)
-    }
+   override fun onClick(position: Int) {
+       viewModel.searchedLocalTournaments.value?.get(position)?.let { sharedViewModel.selectItem(it) }
+       findNavController().navigate(R.id.action_mainTournamentsFragment_to_tournamentsDescriptionFragment)
+   }
 
+    fun goToCreateTournament(v:View){
+        findNavController().navigate(R.id.action_mainTournamentsFragment_to_createTournamentFragment)
+    }
 }

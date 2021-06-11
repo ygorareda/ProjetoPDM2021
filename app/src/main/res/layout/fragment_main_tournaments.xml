@@ -25,47 +25,44 @@
             android:id="@+id/rvTorneiosOnline"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toTopOf="@+id/tvProximosTorneios2"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.764"
-            tools:listitem="layout"/>
+            app:layout_constraintTop_toBottomOf="@+id/tvProximosTorneios"
+            tools:listitem="layout" />
 
         <TextView
             android:id="@+id/tvTitlePrincipal"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="75dp"
+            android:layout_marginTop="32dp"
             android:layout_marginEnd="75dp"
             android:gravity="center"
             android:text="@string/titlePrincial"
             android:textColor="#000000"
             android:textSize="30sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/tvProximosTorneios"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.397" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvProximosTorneios"
             android:layout_width="0dp"
             android:layout_height="30dp"
             android:layout_marginStart="20dp"
+            android:layout_marginTop="16dp"
             android:layout_marginEnd="150dp"
-            android:layout_marginBottom="16dp"
             android:text="@string/proximos_torneios_online"
             android:textColor="#000000"
             android:textSize="17sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/rvTorneiosOnline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvTitlePrincipal" />
 
         <TextView
             android:id="@+id/tvProximosTorneios2"
@@ -73,26 +70,46 @@
             android:layout_height="0dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="130dp"
-            android:layout_marginBottom="15dp"
             android:text="@string/proximos_torneios_presencial"
             android:textColor="#000000"
             android:textSize="17sp"
             android:textStyle="bold"
-            app:layout_constraintBottom_toTopOf="@+id/rvTorneiosPresenciais"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent" />
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/rvTorneiosOnline" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvTorneiosPresenciais"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="1.0"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tvProximosTorneios2" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/btCreateTournament"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:layout_margin="16dp"
+            android:backgroundTint="?colorPrimary"
+            android:contentDescription="@string/fab_content_desc"
+            android:onClick="@{tournament_fragment::goToCreateTournament}"
+            app:borderWidth="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.871" />
+            app:layout_constraintVertical_bias="0.963"
+            app:srcCompat="@drawable/ic_create" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.5" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

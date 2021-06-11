@@ -26,10 +26,21 @@
     <string name="login_singup">Usuário cadastrado com sucesso</string>
     <string name="login_forgot">Email enviado com sucesso</string>
     <string name="unexpected_error">Um erro inesperado ocorreu!</string>
+
+    <string name="tournament_create_name">Insira o nome do torneio aqui</string>
+    <string name="tournament_create_description">Insira uma descrição aqui</string>
+    <string name="tournament_create_date">DD/MM/YYYY</string>
+    <string name="tournament_create_time">HH:mm</string>
+    <string name="tournament_create_checkbox">Você irá participar?</string>
+    <string name="tournament_create_localization">Escolher localização</string>
+    <string name="register">Cadastrar</string>
     <!-- TODO: Remove or change this placeholder text -->
+
+    <string name="choose">Escolher</string>
 
     <!-- onboarding fragment -->
     <string name="comecar">Começar</string>
+    <string name="confirm">Confirmar</string>
     <string name="skip">Skip</string>
     <string name="title_activity_login">LoginActivity</string>
     <string name="splash_screen_first_title">Crie seu próprio perfil</string>

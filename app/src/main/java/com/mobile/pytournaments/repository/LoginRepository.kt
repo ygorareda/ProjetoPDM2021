@@ -4,19 +4,11 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
 import com.google.firebase.auth.FirebaseAuthInvalidUserException
 import com.mobile.pytournaments.R
-import com.mobile.pytournaments.domain.LoginResult
-import com.mobile.pytournaments.domain.UserModelo
+import com.mobile.pytournaments.domain.Result
 import dagger.hilt.android.qualifiers.ApplicationContext
-import retrofit2.http.GET
-import retrofit2.http.Headers
-import java.text.ParseException
 import javax.inject.Inject
 import kotlin.coroutines.resume
 import kotlin.coroutines.suspendCoroutine
-import com.mobile.pytournaments.repository.UserRepository
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.POST
 
 
 class LoginRepository @Inject constructor(
@@ -24,27 +16,27 @@ class LoginRepository @Inject constructor(
     @ApplicationContext val context: Context
 ){
 
-    private fun parseResultError(isSuccessful: Boolean, e: Throwable?): LoginResult {
+    private fun parseResultError(isSuccessful: Boolean, e: Throwable?): Result {
         return when (e) {
-            is FirebaseAuthInvalidCredentialsException -> LoginResult(isSuccessful,
+            is FirebaseAuthInvalidCredentialsException -> Result(isSuccessful,
                 context.getString(R.string.login_invalid_credentials), e)
             is FirebaseAuthInvalidUserException -> {
                 val msg = when (e.errorCode) {
                     "ERROR_USER_NOT_FOUND" -> context.getString(R.string.login_user_not_found)
                     else -> context.getString(R.string.login_invalid_credentials)
                 }
-                LoginResult(isSuccessful ,msg, e)
+                Result(isSuccessful ,msg, e)
             }
-            else -> LoginResult(isSuccessful , context.getString(R.string.login_invalid_user), e)
+            else -> Result(isSuccessful , context.getString(R.string.login_invalid_user), e)
         }
     }
 
-    suspend fun sendLoginData(email: String?, password: String?): LoginResult = suspendCoroutine { nextStep ->
+    suspend fun sendLoginData(email: String?, password: String?): Result = suspendCoroutine { nextStep ->
         val signIn = auth.signInWithEmailAndPassword(email!!, password!!)
 
         signIn.addOnCompleteListener{ signin ->
             val result = if(signin.isSuccessful){
-                LoginResult(signin.isSuccessful,
+                Result(signin.isSuccessful,
                     context.getString(R.string.login_complete),
                     null)
             }
@@ -55,13 +47,13 @@ class LoginRepository @Inject constructor(
         }
     }
 
-    suspend fun sendSingUpData(email: String?, password: String?): LoginResult= suspendCoroutine { nextStep ->
+    suspend fun sendSingUpData(email: String?, password: String?): Result = suspendCoroutine { nextStep ->
         val singUp = auth.createUserWithEmailAndPassword(email!!, password!!)
 
 
         singUp.addOnCompleteListener{ signup ->
             val result = if(signup.isSuccessful){
-                LoginResult(signup.isSuccessful,
+                Result(signup.isSuccessful,
                     context.getString(R.string.login_singup),
                     null)
 
@@ -76,12 +68,12 @@ class LoginRepository @Inject constructor(
     }
 
 
-    suspend fun sendForgotPasswordData(email: String?): LoginResult = suspendCoroutine { nextStep ->
+    suspend fun sendForgotPasswordData(email: String?): Result = suspendCoroutine { nextStep ->
         val forgot = auth.sendPasswordResetEmail(email!!)
 
         forgot.addOnCompleteListener{ email ->
             val result = if(email.isSuccessful){
-                LoginResult(email.isSuccessful,
+                Result(email.isSuccessful,
                     context.getString(R.string.login_forgot),
                     null)
                     }
