@@ -26,7 +26,12 @@
     <string name="login_singup">Usuário cadastrado com sucesso</string>
     <string name="login_forgot">Email enviado com sucesso</string>
     <string name="unexpected_error">Um erro inesperado ocorreu!</string>
-
+    <string name="blank_name">O nome do torneio não pode ser nulo</string>
+    <string name="blank_date">A data não pode ser nula</string>
+    <string name="blank_time">A hora não pode ser nula</string>
+    <string name="blank_description">A descrição não pode ser nula</string>
+    <string name="null_location">É necessária uma localização</string>
+    <string name="datetime_error">Data ou hora não escritas conforme o exemplo no campo</string>
     <string name="tournament_create_name">Insira o nome do torneio aqui</string>
     <string name="tournament_create_description">Insira uma descrição aqui</string>
     <string name="tournament_create_date">DD/MM/YYYY</string>

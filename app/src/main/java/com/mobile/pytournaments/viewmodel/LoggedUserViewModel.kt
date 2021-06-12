@@ -6,6 +6,7 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.mobile.pytournaments.domain.Game
+import com.mobile.pytournaments.domain.User
 import com.mobile.pytournaments.domain.UserCadastraApi
 import com.mobile.pytournaments.domain.UserModelo
 import com.mobile.pytournaments.interactor.UserInteractor
@@ -22,7 +23,7 @@ class LoggedUserViewModel @Inject constructor(
     val loadusers = MutableLiveData<List<UserCadastraApi>>()
     val usertoken = MutableLiveData<String>()
     val uniqueUser = MutableLiveData<UserCadastraApi>()
-
+    val id = MutableLiveData<Int>()
     val name = MutableLiveData<String>()
     val username = MutableLiveData<String>()
     var teste: String = ""
@@ -59,6 +60,6 @@ class LoggedUserViewModel @Inject constructor(
         }
     }
 
-
+    fun getLoggedUser() = User(id.value!!, name.value!!, username.value!!, "", "")
 
 }

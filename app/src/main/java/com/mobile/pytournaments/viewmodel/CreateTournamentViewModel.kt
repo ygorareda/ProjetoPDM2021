@@ -26,11 +26,12 @@ class CreateTournamentViewModel @Inject constructor(
     val date = MutableLiveData<String>()
     val time = MutableLiveData<String>()
     val lat = MutableLiveData<Double>()
-    val long = MutableLiveData<Double>()
+    val lng = MutableLiveData<Double>()
 
     fun registerTournament(){
         viewModelScope.launch{
-            interactor
+            result.value = interactor.registerTournament(name.value,description.value,
+            date.value, time.value, lat.value, lng.value, checkboxValue.value!!)
         }
     }
 

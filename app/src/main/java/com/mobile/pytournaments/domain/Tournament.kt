@@ -18,6 +18,7 @@ data class Tournament(
         var date: Date,
         var status: TournamentStatus,
         var img: String,
+        val owner: User,
         var location: Location,
         var game: Game
         ) : Comparable<Tournament>{
@@ -39,4 +40,6 @@ data class TournamentOnCreate(
         var location: LatLng,
         var owner: User,
         var game: Game
-)
+){
+        var participants = mutableListOf<User>()
+}

@@ -21,7 +21,7 @@ import com.mobile.pytournaments.databinding.FragmentCreateTournamentBinding
 import com.mobile.pytournaments.viewmodel.CreateTournamentViewModel
 
 
-class CreateTournamentFragment : Fragment(){
+class CreateTournamentFragment : Fragment(), DatePickerDialog.OnDateSetListener{
 
     private lateinit var binding: FragmentCreateTournamentBinding
     private val viewModel: CreateTournamentViewModel by activityViewModels()
@@ -54,12 +54,8 @@ class CreateTournamentFragment : Fragment(){
     }
 
     fun registerTournament(v: View){
-//        viewModel.registerTournament()
-        Toast.makeText(
-            context,
-            "${viewModel.name.value} | ${viewModel.lat.value};${viewModel.long.value}" +
-                    "| ${viewModel.checkboxValue.value}",
-            Toast.LENGTH_SHORT).show()
+       Toast.makeText(context, "${viewModel.date.value}|${viewModel.time.value}",Toast.LENGTH_SHORT).show()
+       viewModel.registerTournament()
     }
 
     fun onClickCheckbox(v: View){
@@ -68,5 +64,9 @@ class CreateTournamentFragment : Fragment(){
 
     fun goToMap(v: View){
         findNavController().navigate(R.id.action_createTournamentFragment_to_mapsFragment)
+    }
+
+    override fun onDateSet(view: DatePicker?, year: Int, month: Int, dayOfMonth: Int) {
+        TODO("Not yet implemented")
     }
 }

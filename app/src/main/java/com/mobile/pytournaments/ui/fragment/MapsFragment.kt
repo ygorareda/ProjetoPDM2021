@@ -66,7 +66,7 @@ class MapsFragment : Fragment(), OnMapReadyCallback {
         map.clear()
         this.ponto = novoPino
         viewModel.lat.value = ponto.latitude
-        viewModel.long.value = ponto.longitude
+        viewModel.lng.value = ponto.longitude
 
         map.addMarker(novoPino)
     }
