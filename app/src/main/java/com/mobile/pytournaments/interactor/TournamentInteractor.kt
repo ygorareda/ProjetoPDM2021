@@ -1,6 +1,9 @@
 package com.mobile.pytournaments.interactor
 
 import android.content.Context
+import android.util.Log
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.mobile.pytournaments.R
 import com.mobile.pytournaments.di.PyTournamentsModule
 import com.mobile.pytournaments.domain.Game
@@ -16,34 +19,59 @@ import javax.inject.Inject
 class TournamentInteractor @Inject constructor(
     private val repository: TournamentRepository,
     @ApplicationContext val context: Context
-) {
 
+) {
+    val user = Firebase.auth.currentUser
     private val loggedUser = User(2, "LoggedUser", "Usuario", "", "")
 
     fun loadSubscribedTournamentsData() = repository.searchForSubscribedTournament()
 
-    fun registerTournament(name: String?, description: String?,
-                           date: String?, time: String?,
-                           lat: Double?, lng:Double?, checkboxValue: Boolean): Result{
+    suspend fun registerTournament(name: String?, description: String?,
+                                   date: String?, time: String?,
+                                   lat: Double?, lng:Double?, checkboxValue: Boolean): String {
+        /*Result{
         val result = validateTournamentData(name, description, date, time, lat, lng)
 
         if(!result.success){
             return result
         }
+*/
+        if (name != null) {
+            Log.d("teste", name)
+        }
+        if (description != null) {
+            Log.d("teste", description)
+        }
+        if (date != null) {
+            Log.d("teste", date)
+        }
+        if (time != null) {
+            Log.d("teste", time)
+        }
+        Log.d("teste", lat.toString())
+        Log.d("teste", lng.toString())
 
-        return try{
-            val newTournament =
-                PyTournamentsModule().createTournament(name, description, date,
-                time, lat, lng,loggedUser, Game(1, "", "","")
-            )
-            if (checkboxValue){
+
+        val newTournament =
+            PyTournamentsModule().createTournament(
+                name, description, date,
+                time, lat, lng,user.uid ,"valorant",user.uid )
+        return repository.registerNewTournament(newTournament)
+        /*return try {
+
+
+
+            if (checkboxValue) {
                 newTournament.participants.add(loggedUser)
             }
 
-            repository.registerNewTournament(newTournament)
-        }catch(e: ParseException){
-            Result(false, context.getString(R.string.datetime_error), null)
-        }
+
+        } catch (e: ParseException) {
+            //Result(false, context.getString(R.string.datetime_error), null)
+            Log.d("teste","Deu ruim")
+
+        }.toString()*/
+
     }
 
     private fun validateTournamentData(name:String?, description: String?,

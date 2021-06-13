@@ -1,7 +1,11 @@
 package com.mobile.pytournaments.repository
 
+import android.util.Log
 import com.mobile.pytournaments.domain.*
 import com.mobile.pytournaments.domain.enum.TournamentStatus
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.http.*
 import java.util.*
 import javax.inject.Inject
 
@@ -12,9 +16,27 @@ class TournamentRepository @Inject constructor(
 
     fun searchForSubscribedTournament() = tournamentMockData()
 
-    fun registerNewTournament(new: TournamentOnCreate): Result{
-        mockBd.add(new)
-        return Result(true, "Criado com sucesso", null)
+    suspend fun registerNewTournament(tournamentCreated: TournamentOnCreate): String{
+        //mockBd.add(new)
+        val retrofit = Retrofit.Builder()
+            .baseUrl("http://10.0.2.2:8000/")
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+
+
+
+        Log.d("teste", tournamentCreated.name)
+        Log.d("teste", tournamentCreated.description)
+        Log.d("teste", tournamentCreated.date)
+        Log.d("teste", tournamentCreated.owner)
+        Log.d("teste", tournamentCreated.location.toString())
+        tournamentCreated.user?.let { Log.d("teste", it) }
+
+
+        val request = retrofit.create(TournamentEndPoint::class.java)
+        val consulta = request.createTournament(tournamentCreated)
+
+        return consulta
     }
 
     fun tournamentMockData(): MutableList<Tournament>{
@@ -34,4 +56,14 @@ class TournamentRepository @Inject constructor(
             g1)
         )
     }
+}
+interface TournamentEndPoint{
+//@Headers("Content-type: application/json")
+
+    //@FormUrlEncoded
+    @Headers("Content-type: application/json")
+    @POST("tournaments/cadastra")
+    suspend fun createTournament(@Body tournament: TournamentOnCreate): String
+
+
 }

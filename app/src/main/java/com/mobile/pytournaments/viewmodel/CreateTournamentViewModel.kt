@@ -1,6 +1,7 @@
 package com.mobile.pytournaments.viewmodel
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -19,6 +20,7 @@ class CreateTournamentViewModel @Inject constructor(
 ): AndroidViewModel(app){
 
     val result = MutableLiveData<Result>()
+
     val name = MutableLiveData<String>()
     val description = MutableLiveData<String>()
 
@@ -28,10 +30,13 @@ class CreateTournamentViewModel @Inject constructor(
     val lat = MutableLiveData<Double>()
     val lng = MutableLiveData<Double>()
 
+
+
     fun registerTournament(){
         viewModelScope.launch{
-            result.value = interactor.registerTournament(name.value,description.value,
+            var retorno : String  = interactor.registerTournament(name.value,description.value,
             date.value, time.value, lat.value, lng.value, checkboxValue.value!!)
+            Log.d("teste", retorno)
         }
     }
 

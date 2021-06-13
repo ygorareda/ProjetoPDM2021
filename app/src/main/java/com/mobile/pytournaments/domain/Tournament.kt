@@ -2,7 +2,6 @@ package com.mobile.pytournaments.domain
 
 import com.google.android.gms.maps.model.LatLng
 import com.mobile.pytournaments.domain.enum.TournamentStatus
-import java.lang.StringBuilder
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -35,11 +34,12 @@ data class Tournament(
 data class TournamentOnCreate(
         var name: String,
         var description: String,
-        var date: Date,
-        var img: String,
+        var date: String,
+       // var img: String,
         var location: LatLng,
-        var owner: User,
-        var game: Game
+        var owner: String,
+        var game: String,
+        var user: String?
 ){
         var participants = mutableListOf<User>()
 }

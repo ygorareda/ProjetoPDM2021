@@ -13,11 +13,6 @@ class TournamentViewModel @Inject constructor(
     app: Application,
     private val interactor: TournamentInteractor
 ): AndroidViewModel(app) {
-//   muitas variaveis que guardam o msm tipo de dado
-//   talvez não haja necessidade de utilizar mais de uma variável
-//   que recebe de funções diferentes.
-//   Corgitar a idéia de fragmentar o TournamentViewModel em um
-//   ViewModel para cada tela.
 
     val subscribedTournaments = MutableLiveData< List<Tournament> >()
     val suggestedTournaments = MutableLiveData< List<Tournament> >()
